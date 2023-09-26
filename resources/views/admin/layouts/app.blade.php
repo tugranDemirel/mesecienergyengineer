@@ -43,14 +43,7 @@
 
 <div class="slim-navbar">
     <div class="container">
-        <ul class="nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
-                    <i class="icon ion-ios-home-outline"></i>
-                    <span>Anasayfa</span>
-                </a>
-            </li>
-        </ul>
+       @include('admin.layouts.navbar')
     </div><!-- container -->
 </div><!-- slim-navbar -->
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SiteSettingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,5 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
 
     Route::get('/', [AdminController::class, 'index'])->name('home');
+    Route::resource('site-ayarlari', SiteSettingController::class)->only(['index', 'store', 'update']);
 });

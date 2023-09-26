@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Client;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class ClientController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
-        return view("admin.client.index", compact("clients"));
+        $categories = Category::all();
+        return view("admin.category.index", compact("categories"));
     }
 
     /**
@@ -26,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.client.create-edit');
+        return view('admin.category.create-edit');
     }
 
     /**
@@ -38,23 +39,22 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
-            'url' => 'required',
-            'image' => 'required',
+           'name' => 'required|string|max:255',
+            'image' => 'required'
         ]);
-
+        $data['slug'] = Str::slug($data['name']);
         if ($request->hasFile('image')) { // Formdan gelen image adlı dosya var mı diye kontrol ediyoruz.
             $imageName = time() . '.' . $request->image->extension(); // Dosyanın adını düzenliyoruz.
             $request->image->move(public_path('uploads'), $imageName); // Dosyayı public/uploads dizinine kaydediyoruz.
             $data['image'] = '/uploads/' . $imageName; // Dosyanın adını $data değişkenine atıyoruz.
         }
-        $create = Client::create($data); // Veritabanına kayıt ediyoruz.
-        if ($create) { // Eğer kayıt başarılı ise
-            return redirect()->back()->with('success', 'Marka başarıyla eklendi.'); // admin.markalarimiz.index route'una yönlendiriyoruz.
-        }
-        return redirect()->back()->with('error', 'Marka eklenirken bir hata oluştu.'); // admin.markalarimiz.index route'una yönlendiriyoruz.
-    }
+        $create = Category::create($data); // Veritabanına kayıt ediyoruz.
 
+        if ($create) { // Eğer kayıt başarılı ise
+            return redirect()->back()->with('success', 'Kategori başarıyla eklendi.'); // admin.markalarimiz.index route'una yönlendiriyoruz.
+        }
+        return redirect()->back()->with('error', 'Kategori eklenirken bir hata oluştu.'); // admin.markalarimiz.index route'una yönlendiriyoruz.
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -62,9 +62,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Category $category)
     {
-        return view('admin.client.create-edit', compact('client'));
+        return view('admin.category.create-edit', compact('category'));
     }
 
     /**
@@ -74,25 +74,27 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Category $category)
     {
         $data = $request->validate([
-            'name' => 'required',
-            'url' => 'required',
-            'image' => 'nullable',
+           'name' => 'required|string|max:255',
+            'image' => 'nullable'
         ]);
 
+        $data['slug'] = Str::slug($data['name']);
         if ($request->hasFile('image')) { // Formdan gelen image adlı dosya var mı diye kontrol ediyoruz.
             $imageName = time() . '.' . $request->image->extension(); // Dosyanın adını düzenliyoruz.
             $request->image->move(public_path('uploads'), $imageName); // Dosyayı public/uploads dizinine kaydediyoruz.
             $data['image'] = '/uploads/' . $imageName; // Dosyanın adını $data değişkenine atıyoruz.
-            unlink(public_path($client->image)); // Eski resmi siliyoruz.
+            unlink(public_path($category->image)); // Eski resmi siliyoruz.
         }
-        $update = $client->update($data); // Veritabanına kayıt ediyoruz.
-        if ($update) { // Eğer kayıt başarılı ise
-            return redirect()->back()->with('success', 'Marka başarıyla güncellendi.'); // admin.markalarimiz.index route'una yönlendiriyoruz.
+
+        $update = $category->update($data); // Veritabanına kayıt ediyoruz.
+
+        if ($update) {
+            return redirect()->back()->with('success', 'Kategori başarıyla güncellendi.');
         }
-        return redirect()->back()->with('error', 'Marka güncellenirken bir hata oluştu.'); // admin.markalarimiz.index route'una yönlendiriyoruz.
+        return redirect()->back()->with('error', 'Kategori güncellenirken bir hata oluştu.');
     }
 
     /**
@@ -101,13 +103,13 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Category $category)
     {
-        $delete = $client->delete();
+        $delete = $category->delete();
         if ($delete) {
-            unlink(public_path($client->image));
-            return redirect()->back()->with('success', 'Marka başarıyla silindi.');
+            unlink(public_path($category->image));
+            return redirect()->back()->with('success', 'Kategori başarıyla silindi.');
         }
-        return redirect()->back()->with('error', 'Marka silinirken bir hata oluştu.');
+        return redirect()->back()->with('error', 'Kategori silinirken bir hata oluştu.');
     }
 }

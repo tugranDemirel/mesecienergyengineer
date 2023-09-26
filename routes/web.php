@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +28,6 @@ Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('home');
     Route::resource('site-ayarlari', SiteSettingController::class)->only(['index', 'store', 'update']);
     Route::resource('markalarimiz', ClientController::class)->parameter('markalarimiz', 'client');
+    Route::resource('proje-kategorisi', CategoryController::class)->parameter('proje-kategorisi', 'category');
+    Route::resource('projelerimiz', ServiceController::class)->parameter('projelerimiz', 'service');
 });

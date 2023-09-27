@@ -11,15 +11,21 @@ class Project extends Model
 
     protected $fillable = [
         'title',
+        'sub_title',
         'slug',
-        "short_description",
-        'detail',
-        'bg_image',
         'image',
-        'image2',
-        'icon',
-        'status',
-        'category_id'
+        "client_quote",
+        'description',
+        'technology',
+        'system_size',
+        'started_date',
+        'ended_date',
+        'category_id',
+    ];
+
+    protected $casts = [
+        'started_date' => 'date',
+        'ended_date' => 'date',
     ];
 
     public function category()

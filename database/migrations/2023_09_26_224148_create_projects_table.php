@@ -16,14 +16,15 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('sub_title')->nullable();
             $table->string('slug')->unique();
-            $table->text("short_description");
-            $table->longText('detail');
-            $table->string('bg_image');
             $table->string('image');
-            $table->string('image2');
-            $table->string('icon');
-            $table->tinyInteger('status')->default(2);
+            $table->text("client_quote")->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('technology')->nullable();
+            $table->string('system_size')->nullable();
+            $table->date('started_date')->nullable();
+            $table->date('ended_date')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // Kategori silindiğinde alt kategorileri de silinir.
             $table->timestamps();

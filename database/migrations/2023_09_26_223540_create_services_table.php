@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('image2');
             $table->string('icon');
             $table->tinyInteger('status')->default(2);
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // Kategori silindiğinde alt kategorileri de silinir.
             $table->timestamps();
         });
     }

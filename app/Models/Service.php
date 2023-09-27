@@ -17,6 +17,7 @@ class Service extends Model
         'image',
         'image2',
         'icon',
-        'status'
+        'status',
+        'category_id'
     ];
 }

@@ -21,6 +21,7 @@ class Project extends Model
         'started_date',
         'ended_date',
         'category_id',
+        'status'
     ];
 
     protected $casts = [

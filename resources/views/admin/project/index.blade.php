@@ -12,11 +12,11 @@
         <div class="row">
             <div class="col-md-6">
 
-                <p class="mg-b-20 mg-sm-b-40">Proje Kategorisini aşağıdan görebilir ve yönetebilirsiniz</p>
+                <p class="mg-b-20 mg-sm-b-40">Projelerinizi aşağıdan görebilir ve yönetebilirsiniz</p>
 
             </div>
             <div class="col-md-6 text-right">
-                <a href="{{ route('admin.proje-kategorisi.create') }}" class="btn btn-primary">Yeni Proje Kategorisi Ekle</a>
+                <a href="{{ route('admin.projelerimiz.create') }}" class="btn btn-primary">Yeni Proje Ekle</a>
             </div>
         </div>
         <div class="table-responsive">
@@ -24,29 +24,36 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Kategori Resmi</th>
-                    <th>Kategori Adı</th>
+                    <th>Proje Resmi</th>
+                    <th>Proje Adı</th>
+                    <th>Proje Kategorisi</th>
+                    <th>Proje Başlama Tarihi</th>
+                    <th>Proje Bitiş Tarihi</th>
+                    <th>Durum</th>
                     <th>İşlem</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($categories->count() > 0)
-                @foreach($categories as $category)
+                @if($projects->count() > 0)
+                @foreach($projects as $project)
                 <tr>
-                    <th scope="row">{{ $category->id }}</th>
+                    <th scope="row">{{ $project->id }}</th>
                     <td>
-                        <img src="{{ asset($category->image) }}" alt="{{ $category->name }}" width="100">
+                        <img src="{{ asset($project->image) }}" alt="{{ $project->name }}" width="100">
                     </td>
-                    <td>{{ $category->name }}</td>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->category->name }}</td>
+                    <td>{{ $project->started_date ?? 'Belirtilmemiş' }}</td>
+                    <td>{{ $project->ended_date ?? 'Belirtilmemiş' }}</td>
                     <td>
-                        <a href="{{ route('admin.proje-kategorisi.edit', ['category' => $category]) }}" class="btn btn-primary">Düzenle</a>
+                        <a href="{{ route('admin.projelerimiz.edit', ['project' => $project]) }}" class="btn btn-primary">Düzenle</a>
                         <a href="#" class="btn btn-danger">Sil</a>
                     </td>
                 </tr>
                 @endforeach
                 @else
                     <tr>
-                        <td colspan="5">Henüz proje kategorisi eklenmemiş</td>
+                        <td colspan="5">Henüz proje  eklenmemiş</td>
                     </tr>
                 @endif
 

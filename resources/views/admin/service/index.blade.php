@@ -1,22 +1,22 @@
 @extends('admin.layouts.app')
 @section('title')
-    Proje Kategorisi
+    Hizmetlerimiz
 @endsection
 
 @section('css')
 @endsection
 @section('content')
-    <x-admin.pageheader name="Proje Kategorisi" />
+    <x-admin.pageheader name="Hizmetlerimiz" />
     <x-admin.alert />
     <div class="section-wrapper">
         <div class="row">
             <div class="col-md-6">
 
-                <p class="mg-b-20 mg-sm-b-40">Proje Kategorisini aşağıdan görebilir ve yönetebilirsiniz</p>
+                <p class="mg-b-20 mg-sm-b-40">Hizmetlerinizi aşağıdan görebilir ve yönetebilirsiniz</p>
 
             </div>
             <div class="col-md-6 text-right">
-                <a href="{{ route('admin.proje-kategorisi.create') }}" class="btn btn-primary">Yeni Proje Kategorisi Ekle</a>
+                <a href="{{ route('admin.hizmetlerimiz.create') }}" class="btn btn-primary">Yeni Hizmet Ekle</a>
             </div>
         </div>
         <div class="table-responsive">
@@ -24,29 +24,32 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Kategori Resmi</th>
-                    <th>Kategori Adı</th>
+                    <th>Hizmet Resmi</th>
+                    <th>Hizmet Adı</th>
+                    <th>Hizmet Kategorisi</th>
+                    <th>Durum</th>
                     <th>İşlem</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($categories->count() > 0)
-                @foreach($categories as $category)
+                @if($services->count() > 0)
+                @foreach($services as $service)
                 <tr>
-                    <th scope="row">{{ $category->id }}</th>
+                    <th scope="row">{{ $service->id }}</th>
                     <td>
-                        <img src="{{ asset($category->image) }}" alt="{{ $category->name }}" width="100">
+                        <img src="{{ asset($service->image) }}" alt="{{ $service->name }}" width="100">
                     </td>
-                    <td>{{ $category->name }}</td>
+                    <td>{{ $service->title }}</td>
+                    <td>{{ $service->category->name }}</td>
                     <td>
-                        <a href="{{ route('admin.proje-kategorisi.edit', ['category' => $category]) }}" class="btn btn-primary">Düzenle</a>
+                        <a href="{{ route('admin.hizmetlerimiz.edit', ['service' => $service]) }}" class="btn btn-primary">Düzenle</a>
                         <a href="#" class="btn btn-danger">Sil</a>
                     </td>
                 </tr>
                 @endforeach
                 @else
                     <tr>
-                        <td colspan="5">Henüz proje kategorisi eklenmemiş</td>
+                        <td colspan="5">Henüz Hizmet eklenmemiş</td>
                     </tr>
                 @endif
 

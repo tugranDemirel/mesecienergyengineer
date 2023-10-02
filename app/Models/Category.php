@@ -26,4 +26,8 @@ class Category extends Model
         return $this->hasMany(Project::class);
     }
 
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ProjectController;
+
+use App\Http\Controllers\Front\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +19,14 @@ use App\Http\Controllers\Admin\ProjectController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('viewShare')->group(function (){
+    Route::get('/', [IndexController::class, 'index'])->name('home');
 });
+
 
 Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
-
     Route::get('/', [AdminController::class, 'index'])->name('home');
     Route::post('upload', [AdminController::class, 'upload'])->name('upload');
     Route::resource('site-ayarlari', SiteSettingController::class)->only(['index', 'store', 'update']);

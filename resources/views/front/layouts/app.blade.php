@@ -64,7 +64,7 @@ Mobile Menu
     <div class="vs-menu-area text-center">
         <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="Meseci Enerji ve Mühendislik"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
         </div>
         <div class="vs-mobile-menu">
            @include('front.layouts.navbar')
@@ -77,7 +77,7 @@ Mobile Menu
 <div class="preloader  ">
     <button class="vs-btn preloaderCls">Cancel Preloader </button>
     <div class="preloader-inner">
-        <img src="{{ asset('assets/front/img/logo.svg') }}" alt="Meseci Enerji ve Mühendislik">
+        <img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}">
         <span class="loader"></span>
     </div>
 </div>
@@ -90,7 +90,7 @@ Sidemenu
         <div class="widget  ">
             <div class="vs-widget-about">
                 <div class="footer-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="Meseci Enerji ve Mühendislik"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
                 </div>
                 <p class="footer-text">Ut tellus dolor, dapibus eget, elementum ifend cursus eleifend, elit. Aenea ifen dn tor wisi Aliquam er at volutpat. Dui ac tui end cursus eleifendrpis.</p>
                 <div class="info-social style2">
@@ -127,7 +127,7 @@ Header Area
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="vs-logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="Meseci Enerji ve Mühendislik"></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
                         </div>
                     </div>
                     <div class="col text-end text-xl-center">

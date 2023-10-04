@@ -34,13 +34,13 @@ class SiteSettingController extends Controller
             $logo = $request->file("logo");
             $logoName = uniqid() . "." . $logo->getClientOriginalExtension();
             $logo->move(public_path("uploads"), $logoName);
-            $data["logo"] = $logoName;
+            $data["logo"] =  '/uploads/' . $logoName;
         }
         if ($request->hasFile("favicon")) {
             $favicon = $request->file("favicon");
             $faviconName = uniqid() . "." . $favicon->getClientOriginalExtension();
             $favicon->move(public_path("uploads"), $faviconName);
-            $data["favicon"] = $faviconName;
+            $data["favicon"] =  '/uploads/' . $faviconName;
         }
         $create = SiteSetting::create($data);
         if ($create) {

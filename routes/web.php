@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\SliderController;
 
 use App\Http\Controllers\Front\IndexController;
 /*
@@ -34,4 +35,5 @@ Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
     Route::resource('proje-kategorisi', CategoryController::class)->parameter('proje-kategorisi', 'category');
     Route::resource('projelerimiz', ProjectController::class)->parameter('projelerimiz', 'project');
     Route::resource('hizmetlerimiz', ServiceController::class)->parameter('hizmetlerimiz', 'service');
+    Route::resource('slider', SliderController::class)->parameter('slider', 'slider');
 });

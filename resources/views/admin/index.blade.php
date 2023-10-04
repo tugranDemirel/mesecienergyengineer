@@ -6,6 +6,7 @@
 @section('css')
 @endsection
 @section('content')
+    <a href="{{ route('admin.slider.index') }}">Slider</a>
 @endsection
 @section('js')
 @endsection

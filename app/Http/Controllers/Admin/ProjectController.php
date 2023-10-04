@@ -56,7 +56,7 @@ class ProjectController extends Controller
 
         $data['slug'] = Str::slug($data['title']);
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = uniqid() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads'), $imageName);
             $data['image'] = '/uploads/' . $imageName;
         }
@@ -118,7 +118,7 @@ class ProjectController extends Controller
 
         $data['slug'] = Str::slug($data['title']);
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
+            $imageName = uniqid() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads'), $imageName);
             $data['image'] = '/uploads/' . $imageName;
         }

@@ -9,7 +9,7 @@
         <a href="blog.html">Hizmetlerimiz</a>
     </li>
     <li >
-        <a href="blog.html">Projelerimiz</a>
+        <a href="{{ route('projects') }}">Projelerimiz</a>
     </li>
     <li>
         <a href="contact.html">İletişim</a>

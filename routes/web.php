@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SliderController;
 
 use App\Http\Controllers\Front\IndexController;
+use App\Http\Controllers\Front\FPorjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,8 @@ use App\Http\Controllers\Front\IndexController;
 */
 Route::middleware('viewShare')->group(function (){
     Route::get('/', [IndexController::class, 'index'])->name('home');
+    Route::get('/projelerimiz', [FPorjectController::class, 'index'])->name('projects');
+    Route::get('/projelerimiz/{slug}', [FPorjectController::class, 'single'])->name('project.detail');
 });
 
 

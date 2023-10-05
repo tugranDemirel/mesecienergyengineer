@@ -4,8 +4,6 @@
 @section('meta_keywords', !is_null($_siteSetting->meta_keywords ? $_siteSetting->meta_keywords : '' ) )
 @section('content')
 
-    Hero Area
-    ==============================-->
     <section class="  ">
         <div class="vs-hero-carousel" data-height="800" data-container="1900" data-slidertype="responsive">
             <!-- Slide 1-->
@@ -121,9 +119,6 @@
             @endforeach
         </div>
     </section>
-    <!--==============================
-    About Us
-    ==============================-->
     <section class=" space">
         <div class="container">
             <div class="row justify-content-center text-center">
@@ -160,9 +155,6 @@
             </div>
         </div>
     </section>
-    <!--==============================
-    About Us
-    ==============================-->
     <div class=" space-bottom">
         <div class="container">
             <div class="row gx-80 mb-1 pb-3 text-center text-xl-start justify-content-center justify-content-xl-start">
@@ -250,7 +242,7 @@
 
     Call To Action Area
     ==============================-->
-    <section class="  ">
+    <section class=" space ">
         <div class="container text-center text-xl-start  wow fadeInUp" data-wow-delay="0.3s">
             <div class="cta-box1">
                 <div class="shape-dotted jump-reverse"></div>
@@ -271,9 +263,6 @@
             </div>
         </div>
     </section>
-    <!--==============================
-    Package Area
-    ==============================-->
     <section class=" space">
         <div class="container">
             <div class="title-area text-center wow fadeInUp" data-wow-delay="0.3s">
@@ -407,9 +396,6 @@
             </div>
         </div>
     </section>
-    <!--==============================
-    Project Area
-    ==============================-->
     <section class="bg-light-1 space-top space-extra-bottom">
         <div class="container">
             <div class="row justify-content-between">
@@ -420,7 +406,7 @@
                 </div>
                 <div class="col-auto align-self-center">
                     <div class="sec-btns">
-                        <a href="project.html" class="vs-btn">Bütün Projelerimiz</a>
+                        <a href="{{ route('projects') }}" class="vs-btn">Bütün Projelerimiz</a>
                     </div>
                 </div>
             </div>
@@ -429,12 +415,12 @@
                 @foreach($projects as $project)
                 <div class="col-auto">
                     <div class="project-style1 layout2">
-                        <div class="project-img"><a href="project-details.html"><img
+                        <div class="project-img"><a href="{{route('project.detail', ['slug' => $project->slug])}}"><img
                                     src="{{ asset($project->image) }}" alt=" {{ $project->image }}"></a>
                         </div>
                         <div class="project-content">
                             <span class="project-category">{{ strtoupper($project->category->name) }}</span>
-                            <h3 class="project-title h4"><a href="project-details.html" class="text-inherit"> {{ $project->sub_title }}</a></h3>
+                            <h3 class="project-title h4"><a href="{{route('project.detail', ['slug' => $project->slug])}}" class="text-inherit"> {{ $project->sub_title }}</a></h3>
                             <span class="project-energytotal h4"> {{ $project->system_size }} <span class="quantity">kWh</span></span>
                             <p class="project-energytext">{{ $project->title }}</p>
                             <div class="shape-dotted"></div>
@@ -445,9 +431,6 @@
             </div>
         </div>
     </section>
-    <!--==============================
-    Brand Area
-    ==============================-->
     <section class=" space-bottom">
         <div class="container">
             <div class="row justify-content-center">
@@ -474,7 +457,6 @@
             </div>
         </div>
     </section>
-    <!--==============================
 
 
 @endsection

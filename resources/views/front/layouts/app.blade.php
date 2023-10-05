@@ -25,9 +25,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
-    <!--==============================
-	    All CSS File
-	============================== -->
     <!-- Bootstrap -->
     <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.min.css') }}">
@@ -52,45 +49,31 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
-
-
-<!--********************************
-       Code Start From Here
-******************************** -->
-<!--==============================
-Mobile Menu
-============================== -->
 <div class="vs-menu-wrapper">
     <div class="vs-menu-area text-center">
         <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
         </div>
         <div class="vs-mobile-menu">
            @include('front.layouts.navbar')
         </div>
     </div>
 </div>
-<!--==============================
- Preloader
-==============================-->
 <div class="preloader  ">
-    <button class="vs-btn preloaderCls">Cancel Preloader </button>
+    <button class="vs-btn preloaderCls">{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }} </button>
     <div class="preloader-inner">
-        <img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}">
+        <img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}">
         <span class="loader"></span>
     </div>
 </div>
-<!--==============================
-Sidemenu
-============================== -->
 <div class="sidemenu-wrapper d-none d-lg-block  ">
     <div class="sidemenu-content">
         <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
         <div class="widget  ">
             <div class="vs-widget-about">
                 <div class="footer-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
                 </div>
                 <p class="footer-text">Ut tellus dolor, dapibus eget, elementum ifend cursus eleifend, elit. Aenea ifen dn tor wisi Aliquam er at volutpat. Dui ac tui end cursus eleifendrpis.</p>
                 <div class="info-social style2">
@@ -100,15 +83,12 @@ Sidemenu
         </div>
     </div>
 </div>
-<!--==============================
-Header Area
-==============================-->
 <header class="vs-header header-layout1">
     <div class="container">
         <div class="header-top">
             <div class="row justify-content-between align-items-center">
                 <div class="col d-none d-lg-block">
-                    <p class="header-top-text"><span class="shape"></span>Energy Solutions can help you reduce your fuel bills</p>
+                    <p class="header-top-text"><span class="shape"></span>Enerji çözümleri ile yakıt ve faturalarınızı azaltmanıza yardımcı oluyoruz.</p>
                 </div>
                 <div class="col-auto col-lg-2">
                     <div class="header-social">
@@ -116,7 +96,7 @@ Header Area
                     </div>
                 </div>
                 <div class="col-auto">
-                    <a href="contact.html" class="header-top-text"><i class="fas fa-map-marker-alt"></i>Find A Location</a>
+                    <a href="contact.html" class="header-top-text"><i class="fas fa-map-marker-alt"></i>Bizi Bulun</a>
                 </div>
             </div>
         </div>
@@ -127,7 +107,7 @@ Header Area
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="vs-logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('assets/front/img/logo.svg') }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
                         </div>
                     </div>
                     <div class="col text-end text-xl-center">
@@ -177,6 +157,5 @@ Header Area
         </div>
     </div>
 </header>
-<!--==============================
 @yield('content')
 @include('front.layouts.footer')

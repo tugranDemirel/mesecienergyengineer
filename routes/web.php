@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\AContactController;
 
 use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\Front\FPorjectController;
@@ -40,10 +41,20 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('home');
     Route::post('upload', [AdminController::class, 'upload'])->name('upload');
-    Route::resource('site-ayarlari', SiteSettingController::class)->only(['index', 'store', 'update']);
-    Route::resource('markalarimiz', ClientController::class)->parameter('markalarimiz', 'client');
-    Route::resource('proje-kategorisi', CategoryController::class)->parameter('proje-kategorisi', 'category');
-    Route::resource('projelerimiz', ProjectController::class)->parameter('projelerimiz', 'project');
-    Route::resource('hizmetlerimiz', ServiceController::class)->parameter('hizmetlerimiz', 'service');
-    Route::resource('slider', SliderController::class)->parameter('slider', 'slider');
+    Route::resource('site-ayarlari', SiteSettingController::class)
+        ->only(['index', 'store', 'update']);
+    Route::resource('markalarimiz', ClientController::class)
+        ->parameter('markalarimiz', 'client');
+    Route::resource('proje-kategorisi', CategoryController::class)
+        ->parameter('proje-kategorisi', 'category');
+    Route::resource('projelerimiz', ProjectController::class)
+        ->parameter('projelerimiz', 'project');
+    Route::resource('hizmetlerimiz', ServiceController::class)
+        ->parameter('hizmetlerimiz', 'service');
+    Route::resource('slider', SliderController::class)
+        ->parameter('slider', 'slider');
+    Route::resource('iletisim', AContactController::class)
+        ->parameter('iletisim', 'contact')
+        ->only('index', 'show');
+
 });

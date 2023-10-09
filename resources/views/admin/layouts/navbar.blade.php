@@ -1,6 +1,6 @@
 <ul class="nav">
     <li class="nav-item {{ (strpos(Route::currentRouteName(), 'admin.home') === 0) ? 'active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.home') }}">
             <i class="icon ion-ios-home-outline"></i>
             <span>Anasayfa</span>
         </a>
@@ -27,6 +27,12 @@
         <a class="nav-link" href="{{ route('admin.hizmetlerimiz.index') }}">
             <i class="icon ion-android-bookmark"></i>
             <span>Hizmetlerimiz</span>
+        </a>
+    </li>
+    <li class="nav-item {{ (strpos(Route::currentRouteName(), 'admin.iletisim.index') === 0) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.iletisim.index') }}">
+            <i class="icon ion-android-contacts"></i>
+            <span>İletişim</span>
         </a>
     </li>
     <li class="nav-item {{ (strpos(Route::currentRouteName(), 'admin.site-ayarlari.index') === 0) ? 'active' : '' }}">

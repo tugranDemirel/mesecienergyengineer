@@ -24,8 +24,8 @@
                         <h3 class="widget_title">Yararlı Linkler</h3>
                         <div class="menu-all-pages-container footer-menu">
                             <ul class="menu">
-                                @foreach($_services as $_service)
-                                <li><a href="#">{{ $_service->title }}</a></li>
+                                @foreach($_services->take(4) as $_service)
+                                <li><a href="{{ route('service.detail', ['slug' => $_service->slug]) }}">{{ $_service->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -52,9 +52,7 @@
                 <div class="col-lg-4">
                     <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ $_siteSetting->title ?? 'Meşeci Elektrik ve Mühendislik' }}"></a>
                 </div>
-                <div class="col-lg-7">
-                    <p class="mb-0">Ut tellus dolor, dapibus eget, elementum vel, ifend cursus eleifend, elit. Aenea ifendn auctor wisi Aliquam er at volutpat. Duis ac tuifendrpis. </p>
-                </div>
+
             </div>
         </div>
     </div>

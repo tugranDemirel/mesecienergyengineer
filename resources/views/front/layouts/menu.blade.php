@@ -6,7 +6,7 @@
         <a href="about.html">Hakkımızda</a>
     </li>
     <li >
-        <a href="blog.html">Hizmetlerimiz</a>
+        <a href="{{ route('services') }}">Hizmetlerimiz</a>
     </li>
     <li >
         <a href="{{ route('projects') }}">Projelerimiz</a>

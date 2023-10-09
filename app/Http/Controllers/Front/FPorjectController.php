@@ -14,7 +14,7 @@ class FPorjectController extends Controller
         return view('front.projects', compact('projects'));
     }
 
-    public function single($slug)
+    public function detail($slug)
     {
         $project = Project::where('slug', $slug)->with('category')->firstOrFail();
         $projects = Project::where('slug', '!=', $slug)->with('category')->get();

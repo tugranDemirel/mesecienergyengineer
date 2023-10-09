@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="col-auto">
-                    <a href="contact.html" class="header-top-text"><i class="fas fa-map-marker-alt"></i>Bizi Bulun</a>
+                    <a href="{{ route('contact') }}" class="header-top-text"><i class="fas fa-map-marker-alt"></i>Bizi Bulun</a>
                 </div>
             </div>
         </div>

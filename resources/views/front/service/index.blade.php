@@ -113,7 +113,7 @@
                                 </ul>
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123 456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>
@@ -138,7 +138,7 @@
                                 </ul>
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123 456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>
@@ -163,7 +163,7 @@
                                 </ul>
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123 456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>
@@ -188,7 +188,7 @@
                                 </ul>
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123 456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>

@@ -12,6 +12,6 @@
         <a href="{{ route('projects') }}">Projelerimiz</a>
     </li>
     <li>
-        <a href="contact.html">İletişim</a>
+        <a href="{{ route('contact') }}">İletişim</a>
     </li>
 </ul>

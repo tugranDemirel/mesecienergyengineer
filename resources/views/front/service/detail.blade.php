@@ -42,7 +42,7 @@
                             <p class="media-info">{{ $service->short_description }}</p>
                         </div>
                     </div>
-                    <a href="contact.html" class="vs-btn style2 mb-30">İletişime Geçin</a>
+                    <a href="{{ route('contact') }}" class="vs-btn style2 mb-30">İletişime Geçin</a>
                 </div>
             </div>
             <p>

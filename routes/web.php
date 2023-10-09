@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\Front\FPorjectController;
 use App\Http\Controllers\Front\FServiceController;
+use App\Http\Controllers\Front\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,8 @@ Route::middleware('viewShare')->group(function (){
 
     Route::get('/hizmetlerimiz', [FServiceController::class, 'index'])->name('services');
     Route::get('/hizmetlerimiz/{slug}', [FServiceController::class, 'detail'])->name('service.detail');
+    Route::get('iletisim', [ContactController::class, 'index'])->name('contact');
+    Route::post('iletisim', [ContactController::class, 'store'])->name('contact.store');
 });
 
 

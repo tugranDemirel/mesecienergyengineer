@@ -59,7 +59,7 @@
                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:315px; top:570px;"
                         class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
                         data-ls="offsetxin:-100; delayin:1100; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        <a href="contact.html" class="vs-btn">İletişime Geç</a></div>
+                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geç</a></div>
                     <div
                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:550px; top:576px;"
                         class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
@@ -92,7 +92,7 @@
                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:150px; top:588px;"
                         class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
                         data-ls="offsetxin:-100; delayin:1100; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        <a href="contact.html" class="vs-btn">İletişime Geç</a></div>
+                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geç</a></div>
                     <div
                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:150px; top:104px;"
                         class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
@@ -113,7 +113,7 @@
                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:100px; top:517px;"
                         class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
                         data-ls="offsetxin:-100; delayin:1100; easingin:easeOutQuint;">
-                        <a href="contact.html" class="vs-btn">İletişime Geç</a>
+                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geç</a>
                     </div>
                 </div>
             @endforeach
@@ -250,7 +250,7 @@
                     <div class="col-xl-7 col-xxl-8 mb-30 mb-xl-0">
                         <span class="sec-subtitle">GES PROJESİ Mİ YAPTIRMAK İSTİYORSUNUZ?</span>
                         <h2 class="sec-title">Biz Küresel GES Kurucu ve Montajcısıyız</h2>
-                        <a href="contact.html" class="vs-btn">İletişime Geçin</a>
+                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geçin</a>
                         <p class="cta-number"><img src="{{ asset('assets/front/img/icon/info-1-2.png') }}" alt="about">
                             İletişim Numarası: <a href="tel:{{ $_siteSetting->phone }}" class="text-reset">( {{ $_siteSetting->phone }} )</a></p>
                     </div>
@@ -301,7 +301,7 @@
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
                                     456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>
@@ -330,7 +330,7 @@
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
                                     456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>
@@ -359,7 +359,7 @@
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
                                     456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>
@@ -388,7 +388,7 @@
                             </div>
                             <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
                                     456 2228</a></p>
-                            <a href="contact.html" class="vs-btn style2">Select a Plan</a>
+                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
                         </div>
                         <div class="shape-dotted"></div>
                     </div>

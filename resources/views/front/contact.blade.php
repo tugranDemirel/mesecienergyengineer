@@ -113,7 +113,7 @@
                 @foreach($clients as $client)
                 <div class="col-xl-4">
                     <div class="brand-style1">
-                        <img src="{{ asset($client->image) }}" alt="{{ $client->name }}">
+                        <img src="{{ asset($client->image) }}" alt="{{ $client->name }}" style="width: 122px; height: 78px;">
                     </div>
                 </div>
                 @endforeach

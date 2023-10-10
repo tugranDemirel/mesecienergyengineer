@@ -143,7 +143,7 @@
                         <div class="service-icon"><img src="{{ asset($service->icon) }}" alt="{{ $service->slug }}">
                         </div>
                         <h3 class="service-title h5">
-                            <a class="text-inherit" href="service-details.html">{{ $service->title }}</a>
+                            <a class="text-inherit" href="{{ route('service.detail', ['slug' => $service->slug]) }}">{{ $service->title }}</a>
                         </h3>
                         <p class="service-text">{{ $service->short_description }}</p>
                         <div class="shape-dotted"></div>
@@ -173,139 +173,6 @@
                         <div class="cta-img1">
                             <img src="{{ asset('assets/front/img/cta/cta-1-1.png') }}" alt="cta">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class=" space">
-        <div class="container">
-            <div class="title-area text-center wow fadeInUp" data-wow-delay="0.3s">
-                <svg class="sec-icon" width="68" height="67" viewBox="0 0 68 67">
-                    <path class="sec-shape" d="M926,1225l63-39-21-1,26-27-58,35,21,1"
-                          transform="translate(-926 -1158)"></path>
-                </svg>
-                <span class="sec-subtitle">PRICING PLAN FOR YOU</span>
-                <h2 class="sec-title h1">Pricing Packages</h2>
-            </div>
-            <div class="row vs-carousel price-slide1 wow fadeInUp" data-wow-delay="0.4s" data-slide-show="3"
-                 data-lg-slide-show="2" data-md-slide-show="2" data-center-mode="true" data-xl-center-mode="true"
-                 data-ml-center-mode="true" data-lg-center-mode="true" data-md-center-mode="true"
-                 data-sm-center-mode="true">
-                <div class="col-xl-4">
-                    <div class="package-style1">
-                        <div class="package-head">
-                            <div class="package-img"
-                                 data-bg-src="{{ asset('assets/front/img/price/price-img-1-1.jpg') }}"
-                                 data-overlay></div>
-                            <div class="package-icon"><img src="{{ asset('assets/front/img/icon/price-1-1.png') }}"
-                                                           alt="price icon"></div>
-                            <h3 class="package-name h4">Solar Panel</h3>
-                            <p class="package-text">Black Panels + 5.12kWhStorage</p>
-                            <p class="package-price h1"><span class="currency">$</span>2,100</p>
-                        </div>
-                        <div class="package-body">
-                            <div class="package-list">
-                                <ul class="list-unstyled">
-                                    <li><i class="far fa-check"></i>25 Years Warranty</li>
-                                    <li><i class="far fa-check"></i>Fully scalable system.</li>
-                                    <li><i class="far fa-check"></i>Installation</li>
-                                    <li><i class="far fa-check"></i>Repair & Replacement</li>
-                                    <li><i class="far fa-check"></i>Skilled Support</li>
-                                </ul>
-                            </div>
-                            <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
-                                    456 2228</a></p>
-                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
-                        </div>
-                        <div class="shape-dotted"></div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="package-style1">
-                        <div class="package-head">
-                            <div class="package-img"
-                                 data-bg-src="{{ asset('assets/front/img/price/price-img-1-2.png') }}"
-                                 data-overlay></div>
-                            <div class="package-icon"><img src="{{ asset('assets/front/img/icon/price-1-2.png') }}"
-                                                           alt="price icon"></div>
-                            <h3 class="package-name h4">Windmill</h3>
-                            <p class="package-text">Black Panels + 5.12kWhStorage</p>
-                            <p class="package-price h1"><span class="currency">$</span>2,900</p>
-                        </div>
-                        <div class="package-body">
-                            <div class="package-list">
-                                <ul class="list-unstyled">
-                                    <li><i class="far fa-check"></i>30 Years Warranty</li>
-                                    <li><i class="far fa-check"></i>Fully scalable system.</li>
-                                    <li><i class="far fa-check"></i>Installation</li>
-                                    <li><i class="far fa-check"></i>Repair & Replacement</li>
-                                    <li><i class="far fa-check"></i>Skilled Support</li>
-                                </ul>
-                            </div>
-                            <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
-                                    456 2228</a></p>
-                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
-                        </div>
-                        <div class="shape-dotted"></div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="package-style1">
-                        <div class="package-head">
-                            <div class="package-img"
-                                 data-bg-src="{{ asset('assets/front/img/price/price-img-1-3.png') }}"
-                                 data-overlay></div>
-                            <div class="package-icon"><img src="{{ asset('assets/front/img/icon/price-1-4.png') }}"
-                                                           alt="price icon"></div>
-                            <h3 class="package-name h4">Global Energy</h3>
-                            <p class="package-text">Black Panels + 5.12kWhStorage</p>
-                            <p class="package-price h1"><span class="currency">$</span>3,200</p>
-                        </div>
-                        <div class="package-body">
-                            <div class="package-list">
-                                <ul class="list-unstyled">
-                                    <li><i class="far fa-check"></i>35 Years Warranty</li>
-                                    <li><i class="far fa-check"></i>Fully scalable system.</li>
-                                    <li><i class="far fa-check"></i>Installation</li>
-                                    <li><i class="far fa-check"></i>Repair & Replacement</li>
-                                    <li><i class="far fa-check"></i>Skilled Support</li>
-                                </ul>
-                            </div>
-                            <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
-                                    456 2228</a></p>
-                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
-                        </div>
-                        <div class="shape-dotted"></div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="package-style1">
-                        <div class="package-head">
-                            <div class="package-img"
-                                 data-bg-src="{{ asset('assets/front/img/price/price-img-1-4.png') }}"
-                                 data-overlay></div>
-                            <div class="package-icon"><img src="{{ asset('assets/front/img/icon/price-1-3.png') }}"
-                                                           alt="price icon"></div>
-                            <h3 class="package-name h4">Fossil Service</h3>
-                            <p class="package-text">Black Panels + 5.12kWhStorage</p>
-                            <p class="package-price h1"><span class="currency">$</span>4,100</p>
-                        </div>
-                        <div class="package-body">
-                            <div class="package-list">
-                                <ul class="list-unstyled">
-                                    <li><i class="far fa-check"></i>50 Years Warranty</li>
-                                    <li><i class="far fa-check"></i>Fully scalable system.</li>
-                                    <li><i class="far fa-check"></i>Installation</li>
-                                    <li><i class="far fa-check"></i>Repair & Replacement</li>
-                                    <li><i class="far fa-check"></i>Skilled Support</li>
-                                </ul>
-                            </div>
-                            <p class="package-number">We’ll even pay for your call: <a href="tel:+11234562228">+1 123
-                                    456 2228</a></p>
-                            <a href="{{ route('contact') }}" class="vs-btn style2">Select a Plan</a>
-                        </div>
-                        <div class="shape-dotted"></div>
                     </div>
                 </div>
             </div>
@@ -362,7 +229,7 @@
                             @foreach($clients as $client)
                             <div class="col-md-6 col-lg-4">
                                 <div class="brand-style1">
-                                    <img src="{{ asset($client->image) }}" alt="{{ $client->name }}">
+                                    <img src="{{ asset($client->image) }}" alt="{{ $client->name }}" style="width: 122px; height: 78px;">
                                 </div>
                             </div>
                             @endforeach

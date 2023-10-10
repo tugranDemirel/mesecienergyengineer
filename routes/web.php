@@ -14,6 +14,7 @@ use App\Http\Controllers\Front\IndexController;
 use App\Http\Controllers\Front\FPorjectController;
 use App\Http\Controllers\Front\FServiceController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\FAboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,7 @@ Route::middleware('viewShare')->group(function (){
     Route::get('/hizmetlerimiz/{slug}', [FServiceController::class, 'detail'])->name('service.detail');
     Route::get('iletisim', [ContactController::class, 'index'])->name('contact');
     Route::post('iletisim', [ContactController::class, 'store'])->name('contact.store');
+    Route::get('hakkimizda', [FAboutController::class, 'index'])->name('about');
 });
 
 

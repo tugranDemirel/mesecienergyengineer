@@ -3,7 +3,7 @@
         <a href="{{ route('home') }}">Anasayfa</a>
     </li>
     <li>
-        <a href="about.html">Hakkımızda</a>
+        <a href="{{ route('about') }}">Hakkımızda</a>
     </li>
     <li >
         <a href="{{ route('services') }}">Hizmetlerimiz</a>

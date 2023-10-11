@@ -15,6 +15,9 @@
             <div class="col-md-6">
                 <a href="{{ route('admin.slider.index') }}" class="btn btn-pricing">Sliderler</a>
             </div>
+            <div class="col-md-6">
+                <a href="{{ route('admin.sitemap') }}" class="btn btn-pricing">Sitemap</a>
+            </div>
 
         </div>
     </div>

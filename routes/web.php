@@ -76,7 +76,19 @@ Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
             unlink(public_path('sitemap.xml'));
         }
         $sitemap->writeToFile(public_path('sitemap.xml'));
-        return 'Sitemap oluşturuldu';
-    });
+
+        $sleeper = \Illuminate\Support\Facades\Http::get('https://www.google.com/ping?sitemap='.url('sitemap.xml'));
+        if ($sleeper->successful()) {
+            echo 'Google Arama Konsolu başarıyla bilgilendirildi.\n';
+        } else {
+            echo 'Google Arama Konsolunu bilgilendirme başarısız oldu.'. ' '. $sleeper->status().' \n';
+        }
+        sleep(1);
+        echo 'Anasayfaya yönlendiriliyorsunuz.';
+        sleep(5);
+        return redirect()->route('admin.home');
+
+
+    })->name('sitemap');
 
 });

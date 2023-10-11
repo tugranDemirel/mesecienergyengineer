@@ -100,11 +100,11 @@
             </div>
         </div>
     </section>
-    <div class="container space-bottom">
+    {{--<div class="container space-bottom">
         <div class="ratio ratio-21x9">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163720.11965853968!2d8.496481908353967!3d50.121347879150306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd096f477096c5%3A0x422435029b0c600!2sFrankfurt%2C%20Germany!5e0!3m2!1sen!2sbd!4v1665403058628!5m2!1sen!2sbd" width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    </div>
+    </div>--}}
     @if($clients->count() > 0)
     <div class=" space-bottom">
         <div class="container">

@@ -53,7 +53,7 @@
     <div class="vs-menu-area text-center">
         <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100"></a>
         </div>
         <div class="vs-mobile-menu">
            @include('front.layouts.navbar')
@@ -63,7 +63,7 @@
 <div class="preloader  ">
     <button class="vs-btn preloaderCls">{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }} </button>
     <div class="preloader-inner">
-        <img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}">
+        <img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100">
         <span class="loader"></span>
     </div>
 </div>
@@ -107,7 +107,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="vs-logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100"></a>
                         </div>
                     </div>
                     <div class="col text-end text-xl-center">

@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 @section('title', ' - '.$project->title)
-@section('meta_desciption', $project->short_description )
+@section('meta_description', $project->short_description )
 @section('meta_keywords', $project->title)
 @section('content')
     <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">

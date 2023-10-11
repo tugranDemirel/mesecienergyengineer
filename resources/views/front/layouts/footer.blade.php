@@ -50,7 +50,7 @@
         <div class="footer-middle">
             <div class="row align-items-center gy-3 text-center text-lg-start">
                 <div class="col-lg-4">
-                    <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ $_siteSetting->title ?? 'Meşeci Elektrik ve Mühendislik' }}"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ $_siteSetting->title ?? 'Meşeci Elektrik ve Mühendislik' }}" width="100"></a>
                 </div>
 
             </div>

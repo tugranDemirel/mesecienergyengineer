@@ -1,6 +1,6 @@
 @extends('front.layouts.app')
 @section('title', ' - '.$service->title)
-@section('meta_desciption', !is_null($service->title ? $service->title : '' ) )
+@section('meta_description', !is_null($service->title ? $service->title : '' ) )
 @section('meta_keywords', !is_null($service->short_description ? $service->short_description : '' ) )
 @section('content')
 

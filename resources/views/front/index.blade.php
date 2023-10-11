@@ -1,7 +1,7 @@
 @extends('front.layouts.app')
 @section('title', ' - Anasayfa')
-@section('meta_desciption', !is_null($_siteSetting->meta_description ? $_siteSetting->meta_description : '' ) )
-@section('meta_keywords', !is_null($_siteSetting->meta_keywords ? $_siteSetting->meta_keywords : '' ) )
+@section('meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('meta_keywords', !is_null($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
 @section('content')
     @if($sliders->count() > 0)
     <section class="  ">

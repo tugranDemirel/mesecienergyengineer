@@ -75,7 +75,7 @@
                 <div class="footer-logo">
                     <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
                 </div>
-                <p class="footer-text">Ut tellus dolor, dapibus eget, elementum ifend cursus eleifend, elit. Aenea ifen dn tor wisi Aliquam er at volutpat. Dui ac tui end cursus eleifendrpis.</p>
+                <p class="footer-text">{{ !is_null($_siteSetting->short_description) ? $_siteSetting->short_description : '' }}</p>
                 <div class="info-social style2">
                     @include('front.layouts.social-media')
                 </div>

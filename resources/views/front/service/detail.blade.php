@@ -20,9 +20,6 @@
             </ul>
         </div>
     </div>
-    <!--==============================
-   Service Details Area
-  ==============================-->
     <section class=" space-top space-extra-bottom">
         <div class="container">
             <div class="row justify-content-between flex-row-reverse gx-60">
@@ -48,9 +45,6 @@
             <p>
                 {!! $service->detail !!}
             </p>
-            <!--==============================
-    Feature Area
-    ==============================-->
             <div class=" space-extra-top mb-30">
                 <span class="sec-subtitle">İHTİYACINIZ OLAN HER ŞEY</span>
                 <h2 class="sec-title mb-4">Ne Sağlıyoruz?</h2>

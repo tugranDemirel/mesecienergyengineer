@@ -32,8 +32,10 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <nav class="nav">
-                        <a href="page-settings.html" class="nav-link"><i class="icon ion-ios-gear"></i> Account Settings</a>
-                        <a href="page-signin.html" class="nav-link"><i class="icon ion-forward"></i> Sign Out</a>
+                        <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout').submit();"><i class="icon ion-forward"></i> Çıkış Yap</a>
+                        <form id="logout" action="{{ route('logout') }}" method="post">
+                            @csrf
+                        </form>
                     </nav>
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->

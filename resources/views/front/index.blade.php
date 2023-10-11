@@ -3,7 +3,7 @@
 @section('meta_desciption', !is_null($_siteSetting->meta_description ? $_siteSetting->meta_description : '' ) )
 @section('meta_keywords', !is_null($_siteSetting->meta_keywords ? $_siteSetting->meta_keywords : '' ) )
 @section('content')
-    @if($sliders->count > 0)
+    @if($sliders->count() > 0)
     <section class="  ">
         <div class="vs-hero-carousel" data-height="800" data-container="1900" data-slidertype="responsive">
             <!-- Slide 1-->

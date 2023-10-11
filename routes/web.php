@@ -59,4 +59,24 @@ Route::middleware('auth')->prefix('admin')->as('admin.')->group(function () {
         ->parameter('iletisim', 'contact')
         ->only('index', 'show');
 
+    Route::get('sitemap', function (){
+       $sitemap = \Spatie\Sitemap\Sitemap::create()
+                    ->add(\Spatie\Sitemap\Tags\Url::create(route('home')))
+                    ->add(\Spatie\Sitemap\Tags\Url::create(route('projects')))
+                    ->add(\Spatie\Sitemap\Tags\Url::create(route('services')))
+                    ->add(\Spatie\Sitemap\Tags\Url::create(route('contact')))
+                    ->add(\Spatie\Sitemap\Tags\Url::create(route('about')));
+       \App\Models\Project::all()->each(function ($project) use ($sitemap){
+           $sitemap->add(\Spatie\Sitemap\Tags\Url::create(route('project.detail', $project->slug)));
+       });
+        \App\Models\Service::all()->each(function ($service) use ($sitemap){
+            $sitemap->add(\Spatie\Sitemap\Tags\Url::create(route('service.detail', $service->slug)));
+        });
+        if (is_file(public_path('sitemap.xml'))){
+            unlink(public_path('sitemap.xml'));
+        }
+        $sitemap->writeToFile(public_path('sitemap.xml'));
+        return 'Sitemap oluşturuldu';
+    });
+
 });

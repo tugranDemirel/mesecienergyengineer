@@ -3,7 +3,7 @@
 @section('meta_desciption', !is_null($_siteSetting->meta_description ? $_siteSetting->meta_description : '' ) )
 @section('meta_keywords', !is_null($_siteSetting->meta_keywords ? $_siteSetting->meta_keywords : '' ) )
 @section('content')
-
+    @if($sliders->count > 0)
     <section class="  ">
         <div class="vs-hero-carousel" data-height="800" data-container="1900" data-slidertype="responsive">
             <!-- Slide 1-->
@@ -118,9 +118,9 @@
                 </div>
             @endforeach
         </div>
-    </section>    <!--==============================
-    Service Area
-    ==============================-->
+    </section>
+    @endif
+    @if($services->count() > 0)
     <section class="bg-light-1 space">
         <div class="container">
             <div class="title-area text-center wow fadeInUp" data-wow-delay="0.3s">
@@ -153,10 +153,7 @@
             </div>
         </div>
     </section>
-    <!--==============================
-
-    Call To Action Area
-    ==============================-->
+    @endif
     <section class=" space ">
         <div class="container text-center text-xl-start  wow fadeInUp" data-wow-delay="0.3s">
             <div class="cta-box1">
@@ -178,6 +175,7 @@
             </div>
         </div>
     </section>
+    @if($projects->count() > 0)
     <section class="bg-light-1 space-top space-extra-bottom">
         <div class="container">
             <div class="row justify-content-between">
@@ -213,7 +211,10 @@
             </div>
         </div>
     </section>
-    <section class=" space-bottom">
+    @endif
+
+    @if($clients->count() > 0)
+        <section class=" space-bottom">
         <div class="container">
             <div class="row justify-content-center">
                 <div
@@ -239,6 +240,6 @@
             </div>
         </div>
     </section>
-
+    @endif
 
 @endsection

@@ -58,6 +58,7 @@
             </div>
         </div>
     </section>
+    @if($services->count() > 0)
     <section class=" space-extra-bottom">
         <div class="container">
             <div class="row justify-content-center text-center">
@@ -91,6 +92,7 @@
             </div>
         </div>
     </section>
+    @endif
     <section class="overflow-hidden bg-light-1  ">
         <div class="container">
             <div class="row gx-60 flex-row-reverse justify-content-between align-items-center">
@@ -192,6 +194,7 @@
             </div>
         </div>
     </section>
+    @if($clients->count() > 0)
     <section class=" space-bottom">
         <div class="container">
             <div class="row justify-content-center">
@@ -216,4 +219,5 @@
             </div>
         </div>
     </section>
+    @endif
 @endsection

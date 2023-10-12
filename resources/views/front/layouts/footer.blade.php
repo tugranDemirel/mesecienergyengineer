@@ -65,7 +65,7 @@
                 <div class="col-auto d-none d-lg-block">
                     <div class="copyright-menu">
                         <ul class="list-unstyled">
-                            <li><a href="#">Sitemap</a></li>
+{{--                            <li><a href="sitemap.xml">Sitemap</a></li>--}}
                         </ul>
                     </div>
                 </div>

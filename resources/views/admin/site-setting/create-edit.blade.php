@@ -72,7 +72,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label class="form-control-label">Instagram URL: <span class="tx-danger">*</span></label>
-                            <input class="form-control @error('instagram') is-invalid @enderror" type="email" name="instagram" value="{{ isset($siteSetting) ? $siteSetting->instagram : '' }}" placeholder="Instagram URL giriniz.">
+                            <input class="form-control @error('instagram') is-invalid @enderror" type="text" name="instagram" value="{{ isset($siteSetting) ? $siteSetting->instagram : '' }}" placeholder="Instagram URL giriniz.">
                         </div>
                     </div><!-- col-4 -->
 

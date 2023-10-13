@@ -1,7 +1,21 @@
 @extends('front.layouts.app')
 @section('title', ' - '.$service->title)
-@section('meta_description', !is_null($service->title ? $service->title : '' ) )
-@section('meta_keywords', !is_null($service->short_description ? $service->short_description : '' ) )
+@section('meta_description', !is_null($service->title) ? $service->title : ''  )
+@section('meta_keywords', !is_null($service->short_description) ? $service->short_description : ''  )
+
+@section('facebook_meta_title', !is_null($service->title) ? $service->title : ' Servis Detay')
+@section('facebook_meta_description', !is_null($service->short_description) ? $service->short_description : ' Servis Detay'  )
+@section('facebook_image', !is_null($service->image) ? asset($service->image) : 'Servis Detay'  )
+
+@section('whatsapp_meta_title', !is_null($service->title) ? $service->title : ' Servis Detay')
+@section('whatsapp_meta_description', !is_null($service->short_description) ? $service->short_description : ' Servis Detay'  )
+@section('whatsapp_image', !is_null($service->image) ? asset($service->image) : 'Servis Detay'  )
+@section('whatsapp_site_url', route(request()->url()) )
+@section('css')
+    <meta property="wa:type" content="article">
+    <meta property="og:type" content="article">
+@endsection
+
 @section('content')
 
     <div class="breadcumb-wrapper " data-bg-src="{{ asset($service->bg_image) ?? asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">

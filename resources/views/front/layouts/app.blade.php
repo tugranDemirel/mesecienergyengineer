@@ -9,12 +9,26 @@
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keywords')">
     <meta name="robots" content="INDEX,FOLLOW">
+{{--    facebook--}}
+    <meta property="og:title" content="@yield('facebook_meta_title')">
+    <meta property="og:description" content="@yield('facebook_meta_description')">
+    <meta property="og:image" content="@yield('facebook_image')">
+
+{{--    Whatsapp--}}
+
+    <meta property="wa:card" content="summary_large_image">
+    <meta property="wa:title" content="@yield('whatsapp_meta_title')">
+    <meta property="wa:description" content="@yield('whatsapp_meta_description')">
+    <meta property="wa:image" content="@yield('whatsapp_image')">
+    <meta property="wa:locale" content="tr">
+    <meta property="wa:site" content="{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }}">
+    <meta property="wa:url" content="@yield('whatsapp_site_url')">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="icon" type="image/png" href="{{ asset($_siteSetting->favicon) }}">
+    <link rel="icon" href="{{ asset($_siteSetting->favicon) }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 

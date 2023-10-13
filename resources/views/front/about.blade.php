@@ -2,6 +2,16 @@
 @section('title', ' - İletişim')
 @section('meta_description', !is_null($_siteSetting->meta_description)  ? $_siteSetting->meta_description : ''  )
 @section('meta_keywords', !is_null($_siteSetting->meta_keywords)  ? $_siteSetting->meta_keywords : ''  )
+
+@section('facebook_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : ' Hakkımızda')
+@section('facebook_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Hakkımızda'  )
+@section('facebook_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ' Hakkımızda'  )
+
+@section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : ' Hakkımızda')
+@section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Hakkımızda'  )
+@section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ' Hakkımızda'  )
+@section('whatsapp_site_url', route(request()->url()) )
+
 @section('content')
     <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">
         <div class="container z-index-common">

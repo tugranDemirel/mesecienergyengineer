@@ -2,6 +2,19 @@
 @section('title', ' - '.$project->title)
 @section('meta_description', $project->short_description )
 @section('meta_keywords', $project->title)
+
+@section('facebook_meta_title', !is_null($project->title) ? $project->title : '')
+@section('facebook_meta_description', !is_null($project->short_description) ? $project->short_description : ''  )
+@section('facebook_image', !is_null($project->image) ? asset($project->image) : ''  )
+
+@section('whatsapp_meta_title', !is_null($project->title) ? $project->title : '')
+@section('whatsapp_meta_description', !is_null($project->short_description) ? $project->short_description : ''  )
+@section('whatsapp_image', !is_null($project->image) ? asset($project->image) : ''  )
+@section('whatsapp_site_url', route(request()->url()) )
+@section('css')
+    <meta property="wa:type" content="article">
+    <meta property="og:type" content="article">
+@endsection
 @section('content')
     <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">
         <div class="container z-index-common">

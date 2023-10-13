@@ -2,6 +2,15 @@
 @section('title', ' - Anasayfa')
 @section('meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
 @section('meta_keywords', !is_null($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
+
+@section('facebook_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : '')
+@section('facebook_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('facebook_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
+
+@section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : '')
+@section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
+@section('whatsapp_site_url', route(request()->url()) )
 @section('content')
     @if($sliders->count() > 0)
     <section class="  ">

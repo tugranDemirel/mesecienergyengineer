@@ -12,7 +12,6 @@
 @section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : ' Projelerimiz')
 @section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Projelerimiz'  )
 @section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : 'Projelerimiz'  )
-@section('whatsapp_site_url', route(request()->url()) )
 @section('css')
     <meta property="wa:type" content="article">
     <meta property="og:type" content="article">

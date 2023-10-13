@@ -10,7 +10,6 @@
 @section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : '')
 @section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
 @section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
-@section('whatsapp_site_url', route(request()->url()) )
 @section('content')
     @if($sliders->count() > 0)
     <section class="  ">

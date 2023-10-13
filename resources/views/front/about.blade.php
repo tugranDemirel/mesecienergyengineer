@@ -10,7 +10,6 @@
 @section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : ' Hakkımızda')
 @section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Hakkımızda'  )
 @section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ' Hakkımızda'  )
-@section('whatsapp_site_url', route(request()->url()) )
 
 @section('content')
     <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">

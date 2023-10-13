@@ -10,7 +10,6 @@
 @section('whatsapp_meta_title', !is_null($project->title) ? $project->title : '')
 @section('whatsapp_meta_description', !is_null($project->short_description) ? $project->short_description : ''  )
 @section('whatsapp_image', !is_null($project->image) ? asset($project->image) : ''  )
-@section('whatsapp_site_url', route(request()->url()) )
 @section('css')
     <meta property="wa:type" content="article">
     <meta property="og:type" content="article">

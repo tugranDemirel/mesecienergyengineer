@@ -22,7 +22,8 @@
     <meta property="wa:image" content="@yield('whatsapp_image')">
     <meta property="wa:locale" content="tr">
     <meta property="wa:site" content="{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }}">
-    <meta property="wa:url" content="@yield('whatsapp_site_url')">
+    <meta property="wa:url" content="{{ url()->full() }}">
+
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

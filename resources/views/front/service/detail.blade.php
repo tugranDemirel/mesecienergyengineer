@@ -10,7 +10,6 @@
 @section('whatsapp_meta_title', !is_null($service->title) ? $service->title : ' Servis Detay')
 @section('whatsapp_meta_description', !is_null($service->short_description) ? $service->short_description : ' Servis Detay'  )
 @section('whatsapp_image', !is_null($service->image) ? asset($service->image) : 'Servis Detay'  )
-@section('whatsapp_site_url', route(request()->url()) )
 @section('css')
     <meta property="wa:type" content="article">
     <meta property="og:type" content="article">

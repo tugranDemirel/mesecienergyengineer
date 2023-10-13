@@ -52,7 +52,7 @@
                         <h3 class="info-box-title">İletişim Bilgileri</h3>
                         <div>
                             <div class="vs-media">
-                                <div class="media-icon"><img src="{{ asset('assets/front/img/icon/info-1-1.png') }}" alt="info-icon"></div>
+                                <div class="media-icon"><i class="fas fa-phone"></i></div>
                                 <div class="media-body">
                                     <p class="media-info">İletişim Numarası: <br> <a href="tel:{{ $_siteSetting->phone }}" class="text-inherit">({{ $_siteSetting->phone }})</a></p>
                                 </div>

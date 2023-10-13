@@ -76,7 +76,7 @@
     </div>
 </div>
 <div class="preloader  ">
-    <button class="vs-btn preloaderCls">{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }} </button>
+    <button class="vs-btn preloaderCls" style="background-color: #a40702!important;">{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }} </button>
     <div class="preloader-inner">
         <img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100">
         <span class="loader"></span>
@@ -141,7 +141,7 @@
                 @if(!is_null($_siteSetting->phone))
                 <div class="col-md-6 col-lg-4 header-info">
                     <div class="vs-media">
-                        <div class="media-icon"><img src="{{ asset('assets/front/img/icon/info-1-1.png') }}" alt="info-icon"></div>
+                        <div class="media-icon"><i class="fas fa-phone"></i></div>
                         <div class="media-body">
                             <p class="media-info">İletişim Numarası: <br> <a href="tel:{{ $_siteSetting->phone }}">( {{ $_siteSetting->phone }} )</a></p>
                         </div>

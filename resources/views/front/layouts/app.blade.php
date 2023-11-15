@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ !is_null($_siteSetting->title) ? $_siteSetting->title : "Meşeci Enerji ve Mühendislik" }} @yield('title')</title>
+    <title>{{ !is_null($_siteSetting->title) ? $_siteSetting->title : "Enersan Solar" }} @yield('title')</title>
     <meta name="author" content="Tuğran Demirel">
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keywords')">
@@ -21,7 +21,7 @@
     <meta property="wa:description" content="@yield('whatsapp_meta_description')">
     <meta property="wa:image" content="@yield('whatsapp_image')">
     <meta property="wa:locale" content="tr">
-    <meta property="wa:site" content="{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }}">
+    <meta property="wa:site" content="{{ $_siteSetting->title ?? 'Enersan Solar' }}">
     <meta property="wa:url" content="{{ url()->full() }}">
 
 
@@ -68,7 +68,7 @@
     <div class="vs-menu-area text-center">
         <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Enersan Solar' }}" width="100"></a>
         </div>
         <div class="vs-mobile-menu">
            @include('front.layouts.navbar')
@@ -76,9 +76,9 @@
     </div>
 </div>
 <div class="preloader  ">
-    <button class="vs-btn preloaderCls" style="background-color: #a40702!important;">{{ $_siteSetting->title ?? 'Meşeci Enerji ve Mühendislik' }} </button>
+    <button class="vs-btn preloaderCls" style="background-color: #a40702!important;">{{ $_siteSetting->title ?? 'Enersan Solar' }} </button>
     <div class="preloader-inner">
-        <img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100">
+        <img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Enersan Solar' }}" width="100">
         <span class="loader"></span>
     </div>
 </div>
@@ -88,7 +88,7 @@
         <div class="widget  ">
             <div class="vs-widget-about">
                 <div class="footer-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Enersan Solar' }}"></a>
                 </div>
                 <p class="footer-text">{{ !is_null($_siteSetting->short_description) ? $_siteSetting->short_description : '' }}</p>
                 <div class="info-social style2">
@@ -122,7 +122,7 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-auto">
                         <div class="vs-logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Meseci Enerji ve Mühendislik' }}" width="100"></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset($_siteSetting->logo) }}" alt="{{ !is_null($_siteSetting->title) ? $_siteSetting->title : 'Enersan Solar' }}" width="100"></a>
                         </div>
                     </div>
                     <div class="col text-end text-xl-center">

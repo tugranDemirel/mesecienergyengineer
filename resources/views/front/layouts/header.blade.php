@@ -22,9 +22,9 @@
                         </ul><!-- /.contact__list -->
                         <div class="d-flex align-items-center">
                             <ul class="social-icons list-unstyled mb-0 mr-20">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="{{ $_siteSetting->facebook ?? '#' }}"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="{{ $_siteSetting->twitter ?? '#' }}"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="{{ $_siteSetting->instagram ?? '#' }}"><i class="fab fa-twitter"></i></a></li>
                             </ul><!-- /.social-icons -->
                         </div>
                     </div>
@@ -35,27 +35,27 @@
     <nav class="navbar navbar-expand-lg sticky-navbar">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ isset($_siteSetting->logo) ? $_siteSetting->logo : '' }}" class="logo" alt="{{ isset($_siteSetting->title) ? $_siteSetting->title : '' }}">
+                <img src="{{ isset($_siteSetting->logo) ? $_siteSetting->logo : '' }}" width="200" class="logo" alt="{{ isset($_siteSetting->title) ? $_siteSetting->title : '' }}">
             </a>
             <button class="navbar-toggler" type="button">
                 <span class="menu-lines"><span></span></span>
             </button>
             <div class="collapse navbar-collapse" id="mainNavigation">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav">
                     <li class="nav__item ">
-                        <a href="{{ route('home') }}" class="nav__item-link active">Anasayfa</a>
+                        <a href="{{ route('home') }}" class="nav__item-link {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}">Anasayfa</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item">
-                        <a href="{{ route('about') }}" class="nav__item-link">Hakkımızda</a>
+                        <a href="{{ route('about') }}" class="nav__item-link {{ (strpos(Route::currentRouteName(), 'about') === 0) ? 'active' : '' }}">Hakkımızda</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item">
-                        <a href="{{ route('projects') }}" class="nav__item-link">Projelerimiz</a>
+                        <a href="{{ route('projects') }}" class="nav__item-link {{ (strpos(Route::currentRouteName(), 'projects') === 0) ? 'active' : '' }}">Projelerimiz</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item">
-                        <a href="{{ route('services') }}" class="nav__item-link">Hizmetlerimiz</a>
+                        <a href="{{ route('services') }}" class="nav__item-link {{ (strpos(Route::currentRouteName(), 'services') === 0) ? 'active' : '' }}">Hizmetlerimiz</a>
                     </li><!-- /.nav-item -->
                     <li class="nav__item">
-                        <a href="{{ route('contact') }}" class="nav__item-link">İletişim</a>
+                        <a href="{{ route('contact') }}" class="nav__item-link {{ (strpos(Route::currentRouteName(), 'contact') === 0) ? 'active' : '' }}">İletişim</a>
                     </li><!-- /.nav-item -->
                 </ul><!-- /.navbar-nav -->
                 <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>

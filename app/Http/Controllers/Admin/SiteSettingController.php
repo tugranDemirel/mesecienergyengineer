@@ -70,14 +70,16 @@ class SiteSettingController extends Controller
             $logoName = uniqid() . "." . $logo->getClientOriginalExtension();
             $logo->move(public_path("uploads"), $logoName);
              $data["logo"] =  'uploads/' . $logoName;
-            unlink(public_path($siteSetting->logo));
+             if ($siteSetting->logo)
+                unlink(public_path($siteSetting->logo));
         }
         if ($request->hasFile("favicon")) {
             $favicon = $request->file("favicon");
             $faviconName = uniqid() . "." . $favicon->getClientOriginalExtension();
             $favicon->move(public_path("uploads"), $faviconName);
             $data["favicon"] =  'uploads/' . $faviconName;
-            unlink(public_path($siteSetting->favicon));
+            if ($siteSetting->favicon)
+             unlink(public_path($siteSetting->favicon));
         }
         $update = $siteSetting->update($data);
         if ($update) {

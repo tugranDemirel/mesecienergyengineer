@@ -27,6 +27,20 @@
     <section class="contact-layout1 pb-90">
         <div class="container">
             <div class="row">
+                @if(session()->has('success'))
+                    <div class="col-12">
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
+                    </div>
+                @endif
+                @if(session()->has('error'))
+                    <div class="col-12">
+                        <div class="alert alert-danger">
+                            {{ session()->get('error') }}
+                        </div>
+                    </div>
+                @endif
                 <div class="col-12">
                     <div class="contact-panel p-0 box-shadow-none">
                         <div class="contact__panel-info mb-30">
@@ -57,38 +71,38 @@
                                 <span>Hemen İletişime Geçin</span>
                             </a>
                         </div><!-- /.contact__panel-info -->
-                        <form method="post" action="" id=""
+                        <form method="post" action="{{ route('contact.store') }}" id=""
                               class="contact__panel-form mb-30">
+                            @csrf
                             <div class="row">
                                 <div class="col-sm-12">
+
                                     <h4 class="contact__panel-title">İletişim</h4>
                                     <p class="contact__panel-desc mb-40">Ürünler üzerinde tam kontrol, müşterilerimizin en iyi kalitede fiyat ve hizmeti almasını sağlamamıza olanak tanır. Fabrikamızda yaptığımız her şeyden büyük gurur duyuyoruz.</p>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Adınız" id="contact-name"
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Adınız"
                                                name="name"
                                                required>
                                     </div>
                                 </div><!-- /.col-lg-6 -->
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" id="contact-email"
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email"
                                                name="email" required>
                                     </div>
                                 </div><!-- /.col-lg-6 -->
                                 <div class="col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
+                                        <input type="text" class="form-control @error('number') is-invalid @enderror" value="{{ old('number') }}" placeholder="Phone"
                                                name="number" required>
                                     </div>
                                 </div><!-- /.col-lg-6 -->
 
                                 <div class="col-sm-12 col-md-12 col-lg-12">
                                     <div class="form-group">
-                                          <textarea class="form-control" placeholder="Additional Details!" placeholder="Mesajınız"
-                                                     id="contact-messgae" name="messgae" required>
-                                          </textarea>
+                                          <textarea class="form-control @error('message') is-invalid @enderror" placeholder="Mesajınız" name="message" required>{{ old('message') }}</textarea>
                                     </div>
                                 </div><!-- /.col-lg-12 -->
                                 <div class="col-sm-12 col-md-12 col-lg-12">

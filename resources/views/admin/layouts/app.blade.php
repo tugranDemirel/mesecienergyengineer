@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Tuğran Demirel">
-    <title>@yield('title') - Meşeci Enerji ve Mühendislik</title>
+    <title>@yield('title') - Enersan Solar</title>
     <!-- vendor css -->
     <link href="{{ asset('assets/admin/lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
 
@@ -18,7 +18,7 @@
 <div class="slim-header">
     <div class="container">
         <div class="slim-header-left">
-            <h2 class="slim-logo"><a href="{{ route('admin.home') }}">Meşeci Enerji ve Mühendislik<span>.</span></a></h2>
+            <h2 class="slim-logo"><a href="{{ route('admin.home') }}">Enersan Solar<span>.</span></a></h2>
 
 
         </div><!-- slim-header-left -->

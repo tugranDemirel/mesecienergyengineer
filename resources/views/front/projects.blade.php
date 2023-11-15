@@ -1,57 +1,70 @@
 @extends('front.layouts.app')
 @section('title', ' - Projelerimiz')
-@section('meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
-@section('meta_keywords', !is_null($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
+@section('meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('meta_keywords', isset($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
 
 
-@section('facebook_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : ' Projelerimiz')
-@section('facebook_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Projelerimiz'  )
-@section('facebook_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : 'Projelerimiz'  )
+@section('facebook_meta_title', isset($_siteSetting->title) ? $_siteSetting->title : ' Projelerimiz')
+@section('facebook_meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Projelerimiz'  )
+@section('facebook_image', isset($_siteSetting->logo) ? asset($_siteSetting->logo) : 'Projelerimiz'  )
 
 
-@section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : ' Projelerimiz')
-@section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Projelerimiz'  )
-@section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : 'Projelerimiz'  )
+@section('whatsapp_meta_title', isset($_siteSetting->title) ? $_siteSetting->title : ' Projelerimiz')
+@section('whatsapp_meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ' Projelerimiz'  )
+@section('whatsapp_image', isset($_siteSetting->logo) ? asset($_siteSetting->logo) : 'Projelerimiz'  )
 @section('css')
     <meta property="wa:type" content="article">
     <meta property="og:type" content="article">
 @endsection
 @section('content')
-    <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">
-        <div class="container z-index-common">
-            <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Projelerimiz</h1>
-            </div>
-        </div>
-    </div>
-    <div class="breadcumb-menu-wrap">
+    <section class="page-title page-title-layout1 bg-overlay bg-overlay-2 bg-parallax text-center">
+        <div class="bg-img"><img src="{{ asset('assets/front/images/page-titles/10.jpg') }}" alt="background"></div>
         <div class="container">
-            <ul class="breadcumb-menu">
-                <li><a href="{{ route('home') }}"><i class="fas fa-home-lg"></i>Anasayfa</a></li>
-                <li>Projelerimiz</li>
-            </ul>
-        </div>
-    </div>
-    <section class=" space-top space-extra-bottom">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                    <h1 class="pagetitle__heading mb-0">Projelerimiz</h1>
+                    <p class="pagetitle__desc mb-0">
+                        Yenilikçi teknolojilerimiz, müşterilerimizin ihtiyaçlarına net bir şekilde odaklanmamız ve 30'dan fazla kendini adamış çalışanımızla topluma enerji veriyoruz. Yarını bugünden farklı kılalım!</p>
+                    <a href="#projects" class="scroll-down">
+                        <i class="icon-arrow-down"></i>
+                    </a>
+                </div><!-- /.col-xl-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.page-title -->
+
+    <section id="projects" class="portfolio-layout3">
         <div class="container">
-            <div class="row gx-40 gy-3">
-                @php $i = 3; @endphp
+
+            <div id="filtered-items-wrap" class="row">
                 @foreach($projects as $project)
-                <div class="col-auto  wow fadeInUp" data-wow-delay="0.{{ $i++ }}s">
-                    <div class="project-style1">
-                        <div class="project-img"><a href="{{ route('project.detail', ['slug' => $project->slug]) }}"><img src="{{ asset($project->image) }}" alt="{{ $project->title }}"></a></div>
-                        <div class="project-content">
-                            <span class="project-category">{{ strtoupper( $project->category->name) }}</span>
-                            <h3 class="project-title h4"><a href="{{ route('project.detail', ['slug' => $project->slug]) }}" class="text-inherit">{{ $project->sub_title }}</a></h3>
-                            <span class="project-energytotal h4">{{ $project->system_size }} <span class="quantity">kWh</span></span>
-                            <p class="project-energytext">{{ $project->title }}</p>
-                            <div class="shape-dotted"></div>
-                        </div>
-                    </div>
-                </div>
+                <!-- portfolio item #1 -->
+                <div class="col-sm-6 col-md-6 col-lg-4 mix filter-infractures">
+                    <div class="portfolio-item">
+                        <div class="portfolio__img">
+                            <img src="{{ asset($project->image) }}" alt="portfolio img">
+                        </div><!-- /.portfolio-img -->
+                        <div class="portfolio__body">
+                            <h4 class="portfolio__title"><a href="#">
+                                    {{ $project->title }}
+                                </a></h4>
+                            <p class="portfolio__desc">
+                                {{ $project->sub_title }}
+                            </p>
+                            <a href="{{ route('project.detail', ['slug' => $project->slug]) }}" class="btn btn__primary btn__sm">
+                                <i class="icon-arrow-right"></i>
+                                <span>
+                                    Detaylar
+                                </span>
+                            </a>
+                        </div><!-- /.portfolio__body -->
+                    </div><!-- /.portfolio-item -->
+                </div><!-- /.col-lg-4 -->
                 @endforeach
-            </div>
-        </div>
-    </section>
+            </div><!-- /.row -->
+
+        </div><!-- /.container -->
+    </section><!-- /.portfolio standard -->
+
 
 @endsection

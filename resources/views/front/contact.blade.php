@@ -1,132 +1,108 @@
 @extends('front.layouts.app')
 @section('title', ' - İletişim')
-@section('meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
-@section('meta_keywords', !is_null($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
+@section('meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('meta_keywords', isset($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
 
-@section('facebook_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title.' İletişim Sayfası' : 'İletişim Sayfası')
-@section('facebook_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : 'İletişim Sayfası'  )
-@section('facebook_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : 'İletişim Sayfası'  )
+@section('facebook_meta_title', isset($_siteSetting->title) ? $_siteSetting->title.' İletişim Sayfası' : 'İletişim Sayfası')
+@section('facebook_meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : 'İletişim Sayfası'  )
+@section('facebook_image', isset($_siteSetting->logo) ? asset($_siteSetting->logo) : 'İletişim Sayfası'  )
 
-@section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title.' İletişim Sayfası' : 'İletişim Sayfası')
-@section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : 'İletişim Sayfası'  )
-@section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : 'İletişim Sayfası'  )
+@section('whatsapp_meta_title', isset($_siteSetting->title) ? $_siteSetting->title.' İletişim Sayfası' : 'İletişim Sayfası')
+@section('whatsapp_meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : 'İletişim Sayfası'  )
+@section('whatsapp_image', isset($_siteSetting->logo) ? asset($_siteSetting->logo) : 'İletişim Sayfası'  )
 @section('content')
-    <div class="breadcumb-wrapper " data-bg-src="{{ asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">
-        <div class="container z-index-common">
-            <div class="breadcumb-content">
-                <h1 class="breadcumb-title">İletişim</h1>
-                <p class="breadcumb-subtitle">Sorunuz varsa bizimle iletişime geçmekten çekinmeyin.</p>
-            </div>
-        </div>
-    </div>
-    <div class="breadcumb-menu-wrap">
-        <div class="container">
-            <ul class="breadcumb-menu">
-                <li><a href="{{ route('home') }}"><i class="fas fa-home-lg"></i>Anasayfa</a></li>
-                <li>İletişim</li>
-            </ul>
-        </div>
-    </div>
+    <!-- =========================
+            Google Map
+    =========================  -->
+    <section class="google-map py-0">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.128792840507!2d32.51537571161046!3d37.90405220458542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d08fc185899d2d%3A0xd0f3916a7b7c9c31!2sENERSAN%20SOLAR%20LTD.%C5%9ET%C4%B0!5e0!3m2!1sen!2str!4v1700083645799!5m2!1sen!2str"
+            height="500" width="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section><!-- /.GoogleMap -->
 
-    <section class=" space-top space-extra-bottom">
+    <!-- ==========================
+        contact layout 1
+    =========================== -->
+    <section class="contact-layout1 pb-90">
         <div class="container">
-            <div class="row flex-row-reverse">
-                @if(session()->has('error') || session()->has('success'))
-                    @if( session()->has('success'))
-                        <div class="col-lg-12">
-                            <div class="alert alert-success">
-                                <strong>Teşekkürler!</strong> {{ session()->get('success') }}
-                            </div>
-                        </div>
-                    @endif
-                    @if( session()->has('error'))
-                        <div class="col-lg-12">
-                            <div class="alert alert-error">
-                                <strong>Üzgünüz!</strong> {{ session()->get('error') }}
-                            </div>
-                        </div>
-                    @endif
-                @endif
-                <div class="col-lg-6 col-xl-5 pb-20 pb-lg-0 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="info-box">
-                        <h3 class="info-box-title">İletişim Bilgileri</h3>
-                        <div>
-                            <div class="vs-media">
-                                <div class="media-icon"><i class="fas fa-phone"></i></div>
-                                <div class="media-body">
-                                    <p class="media-info">İletişim Numarası: <br> <a href="tel:{{ $_siteSetting->phone }}" class="text-inherit">({{ $_siteSetting->phone }})</a></p>
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-panel p-0 box-shadow-none">
+                        <div class="contact__panel-info mb-30">
+                            <div class="contact-info-box">
+                                <h4 class="contact__info-box-title">Adres</h4>
+                                <ul class="contact__info-list list-unstyled">
+                                    <li>
+                                        {{ $_siteSetting->address ?? '#' }}
+                                    </li>
+                                </ul><!-- /.contact__info-list -->
+                            </div><!-- /.contact-info-box -->
+                            <div class="contact-info-box">
+                                <h4 class="contact__info-box-title">Hızlı İletişim</h4>
+                                <ul class="contact__info-list list-unstyled">
+                                    <li>Email: <a href="mailto:{{ $_siteSetting->email ?? '#' }}">{{ $_siteSetting->email ?? '#' }}</a></li>
+                                    <li>Support: <a href="mailto:{{ $_siteSetting->email ?? '#' }}">{{ $_siteSetting->email ?? '#' }}</a></li>
+                                </ul><!-- /.contact__info-list -->
+                            </div><!-- /.contact-info-box -->
+                            <div class="contact-info-box">
+                                <h4 class="contact__info-box-title">Çalışma Saatleri</h4>
+                                <ul class="contact__info-list list-unstyled">
+                                    <li>Pazartesi - Cumartesi</li>
+                                    <li>8.00 / 18.00</li>
+                                </ul><!-- /.contact__info-list -->
+                            </div><!-- /.contact-info-box -->
+                            <a href="#" class="btn btn__primary">
+                                <i class="icon-arrow-right"></i>
+                                <span>Hemen İletişime Geçin</span>
+                            </a>
+                        </div><!-- /.contact__panel-info -->
+                        <form method="post" action="" id=""
+                              class="contact__panel-form mb-30">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4 class="contact__panel-title">İletişim</h4>
+                                    <p class="contact__panel-desc mb-40">Ürünler üzerinde tam kontrol, müşterilerimizin en iyi kalitede fiyat ve hizmeti almasını sağlamamıza olanak tanır. Fabrikamızda yaptığımız her şeyden büyük gurur duyuyoruz.</p>
                                 </div>
-                            </div>
-                            <div class="vs-media">
-                                <div class="media-icon"><i class="fas fa-map-marker-alt"></i></div>
-                                <div class="media-body">
-                                    <p class="media-info">{{ $_siteSetting->address }}</p>
-                                </div>
-                            </div>
-                            <div class="vs-media">
-                                <div class="media-icon"><i class="fas fa-envelope"></i></div>
-                                <div class="media-body">
-                                    <p class="media-info">Email Adresi: <br> <a class="text-inherit" href="mailto:{{ $_siteSetting->email }}">{{ $_siteSetting->email }}</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 class="info-box-title">Bizi Takip Edin</h3>
-                        <div class="info-social">
-                           @include('front.layouts.social-media')
-                        </div>
-                    </div>
-                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Adınız" id="contact-name"
+                                               name="name"
+                                               required>
+                                    </div>
+                                </div><!-- /.col-lg-6 -->
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email" id="contact-email"
+                                               name="email" required>
+                                    </div>
+                                </div><!-- /.col-lg-6 -->
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
+                                               name="number" required>
+                                    </div>
+                                </div><!-- /.col-lg-6 -->
 
-                <div class="col-lg-6 col-xl-7 wow fadeInUp" data-wow-delay="0.4s">
-                    <form class="form-style2 layout2 " action="{{ route('contact.store') }}" method="POST">
-                        @csrf
-                        <h3 class="form-title">Sorunuz varsa bizimle iletişime geçmekten çekinmeyin.</h3>
-                        <div class="row">
-                            <div class="col-12 form-group">
-                                <label for="name">Ad-Soyad</label>
-                                <input name="name" id="name" type="text" class="@error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Adınız Soyadınız">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="email">Email Adresi</label>
-                                <input name="email" id="email" type="email" class="@error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Example@domain.com">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="number">İletişim Numarası</label>
-                                <input name="number" id="number" type="number" class="@error('number') is-invalid @enderror" value="{{ old('number') }}" placeholder="İletişim numaranız">
-                            </div>
-                            <div class="col-12 form-group">
-                                <label for="message">Mesajınız</label>
-                                <textarea name="message" id="message" class="@error('message') is-invalid @enderror" value="{{ old('message') }}" placeholder="Mesajınız"></textarea>
-                            </div>
-                            <div class="col-12 form-group">
-                                <button type="submit" class="vs-btn">Gönder</button>
-                            </div>
-                        </div>
-                        <p class="form-messages mb-0 mt-3"></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    {{--<div class="container space-bottom">
-        <div class="ratio ratio-21x9">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163720.11965853968!2d8.496481908353967!3d50.121347879150306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd096f477096c5%3A0x422435029b0c600!2sFrankfurt%2C%20Germany!5e0!3m2!1sen!2sbd!4v1665403058628!5m2!1sen!2sbd" width="800" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>--}}
-    @if($clients->count() > 0)
-    <div class=" space-bottom">
-        <div class="container">
-            <span class="sec-subtitle text-decoration-underline mb-4 pb-lg-3 text-center">MÜŞTERİ VE MARKALARIMIZ</span>
-            <div class="row vs-carousel wow fadeInUp" data-wow-delay="0.4s" data-slide-show="5" data-lg-slide-show="4" data-md-slide-show="3" data-sm-slide-show="2">
-                @foreach($clients as $client)
-                <div class="col-xl-4">
-                    <div class="brand-style1">
-                        <img src="{{ asset($client->image) }}" alt="{{ $client->name }}" style="width: 122px; height: 78px;">
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    @endif
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
+                                          <textarea class="form-control" placeholder="Additional Details!" placeholder="Mesajınız"
+                                                     id="contact-messgae" name="messgae" required>
+                                          </textarea>
+                                    </div>
+                                </div><!-- /.col-lg-12 -->
+                                <div class="col-sm-12 col-md-12 col-lg-12">
+                                    <button type="submit" class="btn btn__secondary">
+                                        <i class="icon-arrow-right"></i><span>Gönder</span>
+                                    </button>
+                                    <div class="contact-result"></div>
+                                </div><!-- /.col-lg-12 -->
+                            </div><!-- /.row -->
+                        </form>
+                    </div><!-- /.contact__panel -->
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.contact layout 1 -->
+
 @endsection

@@ -41,17 +41,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'category_id' => 'required|exists:categories,id',
             'title' => 'required|min:3|max:255',
             'sub_title' => 'required|min:3|max:255',
             'description' => 'required|min:3|max:255',
             'image' => 'required',
-            'client_quote' => 'nullable|min:3',
-            'technology' => 'required|min:3',
-            'system_size' => 'required',
-            'started_date' => 'required|date',
-            'ended_date' => 'nullable|date',
-            'status' => 'required|in:0,1,2,3',
           ]);
 
         $data['slug'] = Str::slug($data['title']);
@@ -103,17 +96,10 @@ class ProjectController extends Controller
     {
 
         $data = $request->validate([
-            'category_id' => 'required|exists:categories,id',
             'title' => 'required|min:3|max:255',
             'sub_title' => 'required|min:3|max:255',
             'description' => 'required|min:3|max:255',
             'image' => 'nullable',
-            'client_quote' => 'nullable|min:3',
-            'technology' => 'required|min:3',
-            'system_size' => 'required',
-            'started_date' => 'required|date',
-            'ended_date' => 'nullable|date',
-            'status' => 'required|in:0,1,2,3',
         ]);
 
         $data['slug'] = Str::slug($data['title']);

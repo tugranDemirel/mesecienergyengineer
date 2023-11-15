@@ -10,14 +10,14 @@ class FPorjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::with('category')->get();
+        $projects = Project::all();
         return view('front.projects', compact('projects'));
     }
 
     public function detail($slug)
     {
-        $project = Project::where('slug', $slug)->with('category')->firstOrFail();
-        $projects = Project::where('slug', '!=', $slug)->with('category')->get();
+        $project = Project::where('slug', $slug)->firstOrFail();
+        $projects = Project::where('slug', '!=', $slug)->get();
         return view('front.project-detail', compact('project', 'projects'));
     }
 }

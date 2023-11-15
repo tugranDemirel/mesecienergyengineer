@@ -26,10 +26,6 @@
                     <th>ID</th>
                     <th>Proje Resmi</th>
                     <th>Proje Adı</th>
-                    <th>Proje Kategorisi</th>
-                    <th>Proje Başlama Tarihi</th>
-                    <th>Proje Bitiş Tarihi</th>
-                    <th>Durum</th>
                     <th>İşlem</th>
                 </tr>
                 </thead>
@@ -42,9 +38,6 @@
                         <img src="{{ asset($project->image) }}" alt="{{ $project->name }}" width="100">
                     </td>
                     <td>{{ $project->title }}</td>
-                    <td>{{ $project->category->name }}</td>
-                    <td>{{ $project->started_date ?? 'Belirtilmemiş' }}</td>
-                    <td>{{ $project->ended_date ?? 'Belirtilmemiş' }}</td>
                     <td>
                         <a href="{{ route('admin.projelerimiz.edit', ['project' => $project]) }}" class="btn btn-primary">Düzenle</a>
                         <a href="#" class="btn btn-danger">Sil</a>

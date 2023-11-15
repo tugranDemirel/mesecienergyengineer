@@ -21,7 +21,6 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Arka Plan Resmi</th>
                     <th>Ana Resim</th>
                     <th>Video URL</th>
                     <th>İşlem</th>
@@ -32,9 +31,6 @@
                 @foreach($sliders as $slider)
                 <tr>
                     <th scope="row">{{ $slider->id }}</th>
-                    <td>
-                        <img src="{{ asset($slider->bg_image) }}" alt="{{ $slider->bg_image }}" width="100">
-                    </td>
                     <td>
                         <img src="{{ asset($slider->image) }}" alt="{{ $slider->image }}" width="100">
                     </td>

@@ -14,8 +14,8 @@ class IndexController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        $projects = Project::with('category')->get();
-        $services = Service::with('category')->get();
+        $projects = Project::limit(6)->get();
+        $services = Service::with('category')->limit(4)->get();
         $clients = Client::all();
         return view('front.index', compact('sliders', 'services', 'projects', 'clients'));
     }

@@ -11,23 +11,23 @@
             <span>Çalışma Markalarımız</span>
         </a>
     </li>
-    <li class="nav-item with-sub {{ ((strpos(Route::currentRouteName(), 'admin.projelerimiz.index') === 0 ) || (strpos(Route::currentRouteName(), 'admin.proje-kategorisi.index') === 0 )) ? 'active' : '' }}">
-        <a class="nav-link" href="#">
+    <li class="nav-item {{ ((strpos(Route::currentRouteName(), 'admin.projelerimiz.index') === 0 ) || (strpos(Route::currentRouteName(), 'admin.proje-kategorisi.index') === 0 )) ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('admin.projelerimiz.index') }}">
             <i class="icon ion-ios-book-outline"></i>
             <span>Projeler</span>
         </a>
-        <div class="sub-item">
-            <ul>
-                <li><a href="{{ route('admin.projelerimiz.index') }}">Projelerimiz</a></li>
-                <li><a href="{{ route('admin.proje-kategorisi.index') }}">Proje Kategorisi</a></li>
-            </ul>
-        </div><!-- dropdown-menu -->
     </li>
-    <li class="nav-item {{ (strpos(Route::currentRouteName(), 'admin.hizmetlerimiz.index') === 0) ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.hizmetlerimiz.index') }}">
+    <li class="nav-item with-sub {{ (strpos(Route::currentRouteName(), 'admin.hizmetlerimiz.index') === 0) ? 'active' : '' }}">
+        <a class="nav-link" href="#">
             <i class="icon ion-android-bookmark"></i>
             <span>Hizmetlerimiz</span>
         </a>
+        <div class="sub-item">
+            <ul>
+                <li><a href="{{ route('admin.hizmetlerimiz.index') }}">Hizmetlerimiz</a></li>
+                <li><a href="{{ route('admin.proje-kategorisi.index') }}">Hizmet Kategorisi</a></li>
+            </ul>
+        </div><!-- dropdown-menu -->
     </li>
     <li class="nav-item {{ (strpos(Route::currentRouteName(), 'admin.iletisim.index') === 0) ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('admin.iletisim.index') }}">

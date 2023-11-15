@@ -14,24 +14,7 @@ class Project extends Model
         'sub_title',
         'slug',
         'image',
-        "client_quote",
         'description',
-        'technology',
-        'system_size',
-        'started_date',
-        'ended_date',
-        'category_id',
-        'status'
     ];
-
-    protected $casts = [
-        'started_date' => 'date',
-        'ended_date' => 'date',
-    ];
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 
 }

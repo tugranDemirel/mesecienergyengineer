@@ -18,12 +18,6 @@ Slider
                 <div class="row mg-b-25">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label">Arka Plan Resmi: <span class="tx-danger">*</span></label>
-                            <input class="form-control @error('bg_image') is-invalid @enderror" type="file" name="bg_image">
-                        </div>
-                    </div><!-- col-4 -->
-                    <div class="col-lg-6">
-                        <div class="form-group">
                             <label class="form-control-label">Ana Resim: <span class="tx-danger">*</span></label>
                             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image">
                         </div>

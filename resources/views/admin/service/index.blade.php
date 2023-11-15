@@ -27,7 +27,6 @@
                     <th>Hizmet Resmi</th>
                     <th>Hizmet Adı</th>
                     <th>Hizmet Kategorisi</th>
-                    <th>Durum</th>
                     <th>İşlem</th>
                 </tr>
                 </thead>
@@ -41,13 +40,6 @@
                     </td>
                     <td>{{ $service->title }}</td>
                     <td>{{ $service->category->name }}</td>
-                    <td>
-                        @if($service->status == 2)
-                            <span class="badge badge-success">Aktif</span>
-                        @else
-                            <span class="badge badge-danger">Pasif</span>
-                        @endif
-                    </td>
                     <td>
                         <a href="{{ route('admin.hizmetlerimiz.edit', ['service' => $service]) }}" class="btn btn-primary">Düzenle</a>
                         <a href="#" class="btn btn-danger">Sil</a>

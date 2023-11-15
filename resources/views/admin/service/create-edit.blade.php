@@ -24,8 +24,9 @@ Hizmetlerimiz
                         <div class="form-group">
                             <label class="form-control-label">Hizmet Kategori Adı: <span class="tx-danger">*</span></label>
                             <select name="category_id" id="" class="form-control @error('category_id') is-invalid @enderror">
-                                @foreach($categories as $category) @endforeach
+                                @foreach($categories as $category)
                                 <option value="{{ $category->id }}"  {{ isset($service) && $service->status == $service->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div><!-- col-4 -->
@@ -38,26 +39,14 @@ Hizmetlerimiz
                     </div><!-- col-4 -->
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="form-control-label">Hizmet Arka Plan Resmi: <span class="tx-danger">*</span></label>
-                            <input class="form-control @error('bg_image') is-invalid @enderror" type="file" name="bg_image">
-                        </div>
-                    </div><!-- col-4 -->
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="form-control-label">Hizmet Resmi 1: <span class="tx-danger">*</span></label>
+                            <label class="form-control-label">Hizmet Resmi: <span class="tx-danger">*</span></label>
                             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image">
                         </div>
                     </div><!-- col-4 -->
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label class="form-control-label">Hizmet Resmi 2: <span class="tx-danger">*</span></label>
-                            <input class="form-control @error('image2') is-invalid @enderror" type="file" name="image2">
-                        </div>
-                    </div><!-- col-4 -->
-                    <div class="col-lg-4">
-                        <div class="form-group">
                             <label class="form-control-label">Hizmet İcon: <span class="tx-danger">*</span></label>
-                            <input class="form-control @error('icon') is-invalid @enderror" type="file" name="icon">
+                            <input class="form-control @error('icon') is-invalid @enderror" type="text" name="icon" value="{{ isset($service) ? $service->icon : '' }}">
                         </div>
                     </div><!-- col-4 -->
                     <div class="col-lg-12">
@@ -70,15 +59,6 @@ Hizmetlerimiz
                         <div class="form-group">
                             <label class="form-control-label">Hizmet Detayları: <span class="tx-danger">*</span></label>
                             <textarea class="form-control ckeditor1 @error('detail') is-invalid @enderror" name="detail" id="" cols="30" rows="10">{{ isset($service) ? $service->detail : '' }}</textarea>
-                        </div>
-                    </div><!-- col-4 -->
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="form-control-label">Hizmet Durumu: <span class="tx-danger">*</span></label>
-                            <select name="status" id="" class="form-control @error('status') is-invalid @enderror">
-                                <option value="1" {{ isset($service) && $service->status == 1 ? 'selected' : '' }}>İnaktif</option>
-                                <option value="2" {{ isset($service) && $service->status == 2 ? 'selected' : '' }}>Aktif</option>
-                            </select>
                         </div>
                     </div><!-- col-4 -->
 

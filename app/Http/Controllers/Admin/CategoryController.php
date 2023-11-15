@@ -40,7 +40,7 @@ class CategoryController extends Controller
     {
         $data = $request->validate([
            'name' => 'required|string|max:255',
-            'image' => 'required'
+            'image' => 'nullable'
         ]);
         $data['slug'] = Str::slug($data['name']);
         if ($request->hasFile('image')) { // Formdan gelen image adlı dosya var mı diye kontrol ediyoruz.

@@ -1,253 +1,347 @@
 @extends('front.layouts.app')
 @section('title', ' - Anasayfa')
-@section('meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
-@section('meta_keywords', !is_null($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
+@section('meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('meta_keywords', isset($_siteSetting->meta_keywords) ? $_siteSetting->meta_keywords : ''  )
 
-@section('facebook_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : '')
-@section('facebook_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
-@section('facebook_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
+@section('facebook_meta_title', isset($_siteSetting->title) ? $_siteSetting->title : '')
+@section('facebook_meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('facebook_image', isset($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
 
-@section('whatsapp_meta_title', !is_null($_siteSetting->title) ? $_siteSetting->title : '')
-@section('whatsapp_meta_description', !is_null($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
-@section('whatsapp_image', !is_null($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
+@section('whatsapp_meta_title', isset($_siteSetting->title) ? $_siteSetting->title : '')
+@section('whatsapp_meta_description', isset($_siteSetting->meta_description) ? $_siteSetting->meta_description : ''  )
+@section('whatsapp_image', isset($_siteSetting->logo) ? asset($_siteSetting->logo) : ''  )
 @section('content')
-    @if($sliders->count() > 0)
-    <section class="  ">
-        <div class="vs-hero-carousel" data-height="800" data-container="1900" data-slidertype="responsive">
-            <!-- Slide 1-->
+
+    <section class="slider">
+        <div class="slick-carousel carousel-arrows-light carousel-dots-light m-slides-0"
+             data-slick='{"slidesToShow": 1, "arrows": true, "dots": true, "speed": 700,"fade": true,"cssEase": "linear"}'>
             @foreach($sliders as $slider)
-                <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
-                    <img width="1920" height="807" src="{{ asset($slider->bg_image) }}" class="ls-bg" alt="hero-bg">
-                    <div
-                        style="text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; color:#ffffff; left:315px; top:710px; line-height:0px; z-index:200;"
-                        class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="static:forever;">
-                        <div class="d-none d-xxl-block">
-                            <button class="ls-custom-dot ls-dots1"><span class="ls-dot-number">1.</span><span
-                                    class="ls-dot-shape"></span></button>
-                            <button class="ls-custom-dot ls-dots1"><span class="ls-dot-number">2.</span><span
-                                    class="ls-dot-shape"></span></button>
-                            <button class="ls-custom-dot ls-dots1"><span class="ls-dot-number">3.</span><span
-                                    class="ls-dot-shape"></span></button>
-                        </div>
-                    </div>
-                    <ls-layer
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:1490px; top:700px; z-index:200;"
-                        class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer" data-ls="static:forever;">
-                        <div class="d-none d-xxl-block">
-                            <button data-change-slide="prev" class="icon-btn ls-custom-arrow style3"><i
-                                    class="fas fa-chevron-left"></i></button>
-                            <button data-change-slide="next" class="icon-btn ls-custom-arrow style3"><i
-                                    class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </ls-layer>
-                    <ls-layer
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:1710px; top:50%; z-index:200;"
-                        class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" data-ls="static:forever;">
-                        <div>
-                            <button data-change-slide="prev" class="icon-btn ls-custom-arrow style3 me-0 d-block mb-2">
-                                <i class="fas fa-chevron-left"></i></button>
-                            <button data-change-slide="next" class="icon-btn ls-custom-arrow style3"><i
-                                    class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </ls-layer>
-                    <img width="691" height="680" src="{{ asset('assets/front/img/hero/hero-shape-1-1.png') }}"
-                         class="ls-l ls-img-layer" alt="shape"
-                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; top:105px; left:947px;"
-                         data-ls="delayin:400; easingin:easeOutQuint; parallax:true; parallaxlevel:3;">
-                    <img width="369" height="629" src="{{ asset( $slider->image) }}" class="ls-l ls-img-layer"
-                         alt="hero img"
-                         style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; top:130px; left:1121px;"
-                         data-ls="delayin:200; easingin:easeOutQuint; parallax:true; parallaxlevel:6;">
-                    <h1 style="font-size:60px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; background-position:0% 0%; background-repeat:no-repeat; color:#ffffff; font-family:Epilogue; left:313px; top:419px; letter-spacing:-0.5px; font-weight:700;"
-                        class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer"
-                        data-ls="offsetxin:-100; durationin:1500; delayin:600; easingin:easeOutQuint; offsetxout:-100; durationout:1500;">
-                        {{ $slider->description }}
-                    </h1>
-                    <div
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:315px; top:570px;"
-                        class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
-                        data-ls="offsetxin:-100; delayin:1100; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geç</a></div>
-                    <div
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:550px; top:576px;"
-                        class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
-                        data-ls="offsetxin:200; delayin:1300; easingin:easeOutQuint; offsetxout:200; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        @if(!is_null($slider->url))
-                        <div class="watch-btn d-none d-xxl-block">
-                            <a href="{{ $slider->url }}" class="btn-icon popup-video"><i class="fas fa-play"></i></a>
-                            <a href="{{ $slider->url }}" class="btn-text popup-video">Video İzle</a>
-                        </div>
-                        @endif
-                    </div>
-                    <div
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:646px; top:576px;"
-                        class="ls-l ls-hide-tablet ls-hide-phone ls-html-layer"
-                        data-ls="offsetxin:200; delayin:1300; easingin:easeOutQuint; offsetxout:200; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        <div class="watch-btn d-block d-xxl-none">
-                            @if(!is_null($slider->url))
-                            <a href="{{ $slider->url }}" class="btn-icon popup-video"><i class="fas fa-play"></i></a>
-                            <a href="{{ $slider->url }}" class="btn-text popup-video">Video İzle</a>
-                            @endif
-                        </div>
-                    </div>
+                <div class="slide-item align-v-h bg-overlay {{ $loop->first ? 'bg-overlay-2' : '' }}">
+                    <div class="bg-img"><img src="{{ asset($slider->image) }}" alt="slide img"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
+                                <div class="slide__body">
+                                    <h2 class="slide__title">{{ $slider->description }} </h2>
 
-                    <h1 style="font-size:80px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; background-position:0% 0%; background-repeat:no-repeat; color:#ffffff; font-family:Epilogue; left:150px; top:451px; letter-spacing:-0.5px; font-weight:700;"
-                        class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer"
-                        data-ls="offsetxin:-100; durationin:1500; delayin:600; easingin:easeOutQuint; offsetxout:-100; durationout:1500;">
-                        {{ $slider->description }}
-                    </h1>
-                    <div
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:150px; top:588px;"
-                        class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
-                        data-ls="offsetxin:-100; delayin:1100; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geç</a></div>
-                    <div
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:150px; top:104px;"
-                        class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer"
-                        data-ls="offsetxin:200; delayin:1300; easingin:easeOutQuint; offsetxout:200; durationout:1500; easingout:easeOutQuint; bgcolorout:transparent; colorout:transparent;">
-                        <div class="watch-btn">
-                            @if(!is_null($slider->url))
-                            <a href="{{ $slider->url }}" class="btn-icon popup-video"><i class="fas fa-play"></i></a>
-                            <a href="{{ $slider->url }}" class="btn-text popup-video">Video İzle</a>
-                            @endif
-                        </div>
-                    </div>
-                    <h1 style="font-size:90px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; background-position:0% 0%; background-repeat:no-repeat; color:#ffffff; font-family:Epilogue; left:100px; top:84px; letter-spacing:-0.5px; font-weight:700;"
-                        class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer"
-                        data-ls="offsetxin:-100; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500;">
-                        {{ $slider->description }}
-                    </h1>
-                    <div
-                        style="font-size:36px; color:#000; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; left:100px; top:517px;"
-                        class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer"
-                        data-ls="offsetxin:-100; delayin:1100; easingin:easeOutQuint;">
-                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geç</a>
-                    </div>
-                </div>
+                                    <div class="d-flex align-items-center">
+                                        <a href="{{ route('services') }}" class="btn btn__white mr-30">
+                                            <i class="icon-arrow-right"></i><span>Daha fazlası için</span>
+                                        </a>
+                                        @isset($slider->url)
+                                        <a class="video__btn video__btn-white popup-video"
+                                           href="{{ $slider->url }}">
+                                            <div class="video__player">
+                                                <i class="fa fa-play"></i>
+                                            </div>
+                                            <span class="video__btn-title color-white pl-30">Videomuz!</span>
+                                        </a>
+                                        @endisset
+                                    </div>
+                                </div><!-- /.slide__body -->
+                            </div><!-- /.col-xl-7 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.slide-item -->
             @endforeach
-        </div>
-    </section>
-    @endif
-    @if($services->count() > 0)
-    <section class="bg-light-1 space">
-        <div class="container">
-            <div class="title-area text-center wow fadeInUp" data-wow-delay="0.3s">
-                <svg class="sec-icon" width="68" height="67" viewBox="0 0 68 67">
-                    <path class="sec-shape" d="M926,1225l63-39-21-1,26-27-58,35,21,1"
-                          transform="translate(-926 -1158)"></path>
-                </svg>
-                <span class="sec-subtitle">SUNDUKLARIMIZ</span>
-                <h2 class="sec-title h1">Profesyonel Hizmetler</h2>
-            </div>
-            <div class="row gx-0 vs-carousel service-slide1 wow fadeInUp" data-wow-delay="0.4s" data-slide-show="4"
-                 data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-dots="true"
-                 data-center-mode="true" data-ml-center-mode="true" data-xl-center-mode="true"
-                 data-lg-center-mode="true" data-md-center-mode="true">
-                @foreach($services as  $service)
-                <div class="col-xl-3">
-                    <div class="service-style1">
-                        <div class="service-img"><img src="{{ asset($service->image) }}"
-                                                      alt="{{ $service->slug }}"></div>
-                        <div class="service-icon"><img src="{{ asset($service->icon) }}" alt="{{ $service->slug }}">
-                        </div>
-                        <h3 class="service-title h5">
-                            <a class="text-inherit" href="{{ route('service.detail', ['slug' => $service->slug]) }}">{{ $service->title }}</a>
-                        </h3>
-                        <p class="service-text">{{ $service->short_description }}</p>
-                        <div class="shape-dotted"></div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
-    <section class=" space ">
-        <div class="container text-center text-xl-start  wow fadeInUp" data-wow-delay="0.3s">
-            <div class="cta-box1">
-                <div class="shape-dotted jump-reverse"></div>
-                <div class="row">
-                    <div class="col-xl-7 col-xxl-8 mb-30 mb-xl-0">
-                        <span class="sec-subtitle">GES PROJESİ Mİ YAPTIRMAK İSTİYORSUNUZ?</span>
-                        <h2 class="sec-title">Biz Küresel GES Kurucu ve Montajcısıyız</h2>
-                        <a href="{{ route('contact') }}" class="vs-btn">İletişime Geçin</a>
-                        <p class="cta-number"><img src="{{ asset('assets/front/img/icon/info-1-2.png') }}" alt="about">
-                            İletişim Numarası: <a href="tel:{{ $_siteSetting->phone }}" class="text-reset">( {{ $_siteSetting->phone }} )</a></p>
-                    </div>
-                    <div class="col-xl col-xxl">
-                        <div class="cta-img1">
-                            <img src="{{ asset('assets/front/img/cta/cta-1-1.png') }}" alt="cta">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    @if($projects->count() > 0)
-    <section class="bg-light-1 space-top space-extra-bottom">
-        <div class="container">
-            <div class="row justify-content-between">
-                <div class="col-xl-6">
-                    <div class="title-area">
-                        <span class="sec-subtitle">PROJELERİMİZ</span>
-                    </div>
-                </div>
-                <div class="col-auto align-self-center">
-                    <div class="sec-btns">
-                        <a href="{{ route('projects') }}" class="vs-btn">Bütün Projelerimiz</a>
-                    </div>
-                </div>
-            </div>
-            <div class="row project-slide1 vs-carousel gx-45" data-slide-show="3" data-variable-width="true"
-                 data-arrows="true">
-                @foreach($projects as $project)
-                <div class="col-auto">
-                    <div class="project-style1 layout2">
-                        <div class="project-img"><a href="{{route('project.detail', ['slug' => $project->slug])}}"><img
-                                    src="{{ asset($project->image) }}" alt=" {{ $project->image }}"></a>
-                        </div>
-                        <div class="project-content">
-                            <span class="project-category">{{ strtoupper($project->category->name) }}</span>
-                            <h3 class="project-title h4"><a href="{{route('project.detail', ['slug' => $project->slug])}}" class="text-inherit"> {{ $project->sub_title }}</a></h3>
-                            <span class="project-energytotal h4"> {{ $project->system_size }} <span class="quantity">kWh</span></span>
-                            <p class="project-energytext">{{ $project->title }}</p>
-                            <div class="shape-dotted"></div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
+        </div><!-- /.carousel -->
+    </section><!-- /.slider -->
 
-    @if($clients->count() > 0)
-        <section class=" space-bottom">
+
+    <section class="features-layout4 py-0">
         <div class="container">
-            <div class="row justify-content-center">
-                <div
-                    class="col-lg-6 col-xl-5 col-xxl-4 align-self-center mb-40 mb-xl-0 text-center text-xl-start wow fadeInUp"
-                    data-wow-delay="0.3s">
-                    <span class="sec-subtitle">MÜŞTERİ VE MARKALARIMIZ</span>
-                    <h2 class="sec-title mb-n2">Güçlü Yapı, Uzun Süreli İlişki</h2>
-                </div>
-                <div class="col-xl-7 offset-xxl-1 z-index-common wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="brand-wrap1">
-                        <div class="shape-dotted jump"></div>
-                        <div class="row gx-0">
-                            @foreach($clients as $client)
-                            <div class="col-md-6 col-lg-4">
-                                <div class="brand-style1">
-                                    <img src="{{ asset($client->image) }}" alt="{{ $client->name }}" style="width: 122px; height: 78px;">
-                                </div>
+            <div class="row row-no-gutter features-wrapper">
+                <!-- Feature item #1 -->
+                @foreach($services as $service)
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="feature-item">
+                        <div class="feature__icon custom-icon">
+                            {!! $service->icon !!}
+                        </div>
+                        <h4 class="feature__title">{{ $service->title }}</h4>
+                        <p class="feature__desc">{{ $service->short_description }}
+                        </p>
+                        <a href="{{ route('service.detail', ['slug' => $service->slug]) }}" class="btn__link">
+                            <i class="icon-arrow-right icon-filled"></i>
+                            <span>Daha fazlası</span>
+                        </a>
+                    </div><!-- /.feature-item -->
+                </div><!-- /.col-lg-3 -->
+                @endforeach
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.Features Layout 4 -->
+
+    <section class="features-layout1 pt-120 pb-80 mt-100">
+        <div class="bg-img"><img src="{{ asset('assets/front/images/backgrounds/3.jpg') }}" alt="background"></div>
+        <div class="container">
+            <div class="row mb-40">
+                <div class="col-12">
+                    <h2 class="heading__subtitle color-primary">Yarınınızı bugünden daha farklı hale getirin.</h2>
+                </div><!-- /col-12 -->
+                <div class="col-sm-12 col-md-12 col-lg-5">
+                    <h3 class="heading__title color-white">Sürdürülebilir ve Güvenilir Enerji Sistemleriyle Topluma Enerji Verin!</h3>
+                </div><!-- /col-lg-5 -->
+                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-1">
+                    <p class="heading__desc color-gray mb-20">
+                        Son yıllarda, PV pazarının büyümesini desteklemek için güneş enerjisi değer zincirinde yeni kapasite gerekli hale geldi. Ancak levha, güneş pili ve güneş modülü üretim tesislerinin kurulması ve büyütülmesi için gereken sermaye oldukça fazladır.
+                    </p>
+                    <p class="heading__desc color-gray mb-30">Bu faktörler bir araya geldiğinde, küresel güneş enerjisi üreticilerinin sürdürülebilir çalışması ve büyümesi açısından ciddi bir zorluk teşkil ediyor.</p>
+                    <a href="#" class="btn btn__primary btn__outlined btn__custom">
+                        <i class="icon-arrow-right"></i>
+                        <span>Tüm özellikleri keşfedin</span>
+                    </a>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="slick-carousel"
+                         data-slick='{"slidesToShow": 4, "slidesToScroll": 4, "arrows": false, "dots": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 3, "slidesToScroll": 3}}, {"breakpoint": 767, "settings": {"slidesToShow": 1, "slidesToScroll": 1}}]}'>
+                        <!-- Feature item #1 -->
+                        <div class="feature-item">
+                            <div class="feature__icon">
+                                <i class="icon-hydro-power3"></i>
                             </div>
-                            @endforeach
+                            <h4 class="feature__title">Paranızı Tasarrıf Edin</h4>
+                            <p class="feature__desc">
+                                Güneş enerjisi kurarak kamu hizmetlerinden tasarruf edin veya evinizin değerini artırın.
+                            </p>
+                            <a href="#" class="btn__link">
+                                <i class="icon-arrow-right icon-filled"></i>
+                                <span>Daha fazlası için</span>
+                            </a>
+                        </div><!-- /.feature-item -->
+                        <!-- Feature item #2 -->
+                        <div class="feature-item">
+                            <div class="feature__icon">
+                                <i class="icon-eco-house"></i>
+                            </div>
+                            <h4 class="feature__title">Eviniz Enerjidir</h4>
+                            <p class="feature__desc">
+                                Her gün güneş bize güneş enerjisiyle ücretsiz bol miktarda enerji sağlar.
+                            </p>
+                            <a href="#" class="btn__link">
+                                <i class="icon-arrow-right icon-filled"></i>
+                                <span>Daha fazlası için</span>
+                            </a>
+                        </div><!-- /.feature-item -->
+                        <!-- Feature item #3 -->
+                        <div class="feature-item">
+                            <div class="feature__icon">
+                                <i class="icon-energy2"></i>
+                            </div>
+                            <h4 class="feature__title">
+                                Danışmanlık ve Planlama
+                            </h4>
+                            <p class="feature__desc">
+                                Uzaktaki endüstriyel güneş sistemlerimiz, müşterilerimizin ihtiyaçlarını karşılamak için güvenilir bir şekilde çalışacak şekilde tasarlanmıştır.
+                            </p>
+                            <a href="#" class="btn__link">
+                                <i class="icon-arrow-right icon-filled"></i>
+                                <span>Daha fazlası için</span>
+                            </a>
+                        </div><!-- /.feature-item -->
+                        <!-- Feature item #4 -->
+                        <div class="feature-item">
+                            <div class="feature__icon">
+                                <i class="icon-electric-car"></i>
+                            </div>
+                            <h4 class="feature__title">
+                                Sertifikalı Mühendisler
+                            </h4>
+                            <p class="feature__desc">
+                                Satış mühendislerimiz, tecrübeye sahiptir ve herhangi bir tam güneş enerjisi sistemi tasarlayabilir.
+                            </p>
+                            <a href="#" class="btn__link">
+                                <i class="icon-arrow-right icon-filled"></i>
+                                <span>Daha fazlası için</span>
+                            </a>
+                        </div><!-- /.feature-item -->
+                    </div><!-- /.carousel-->
+                </div><!-- /.col-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="read-note d-flex flex-wrap mt-60">
+                        <div class="rating mb-10 mr-50">
+                            <i class="fas fa-star color-primary"></i>
+                            <i class="fas fa-star color-primary"></i>
+                            <i class="fas fa-star color-primary"></i>
+                            <i class="fas fa-star color-primary"></i>
+                            <i class="fas fa-star color-primary"></i>
                         </div>
+                        <p class="read-note__text">
+                            <span class="font-weight-bold text-underlined-primary color-primary">
+                                %99,9 Müşteri Memnuniyeti
+                            </span>
+                            100'den fazla müşteriye güneş enerjisi sistemleri kurduk.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    @endif
+        </div><!-- /.container -->
+    </section><!-- /.Features Layout 1 -->
 
+    <section class="banner-layout1 py-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-7">
+                    <div class="text-block">
+                        <div class="banner__text">
+                            <p>
+
+                                Güneş enerjisi ürünlerinin verimini ve performansını artırırken, PV sektörü deneyimimiz her adımda derinlemesine malzeme tedariki, finansman ve tedarik zinciri uzmanlığı sunmamıza olanak sağlar.
+                            </p>
+                        </div><!-- /.banner__text -->
+                        <ul class="list-items list-items-layout2 list-unstyled mb-0">
+                            <li>Sertifikasyon için profesyonel yerinde servis ve destek.</li>
+                            <li>Kararlı dönüşüm verimliliği için düzenli ışık kaynağı.</li>
+                            <li>Periyodik izleme ve üstün plaka ile en düşük LID.</li>
+                        </ul>
+                    </div><!-- /.text-block -->
+                </div><!-- /.col-lg-7 -->
+                <div class="col-sm-12 col-md-12 col-lg-5">
+                    <div class="img-block">
+                        <img src="{{ asset('assets/front/images/banners/1.png') }}" alt="banner">
+                    </div><!-- /.img-block -->
+                </div><!-- /.col-lg-5 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.Banner layout 1 -->
+@if($projects->count() > 0)
+    <section class="portfolio-layout1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading-layout2 mb-40">
+                        <h3 class="heading__title">Son Projelerimiz</h3>
+                    </div><!-- /.heading -->
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <!-- portfolio item #1 -->
+                @foreach($projects as $project)
+                <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio__img">
+                            <img src="{{ asset($project->image) }}" alt="portfolio img">
+                        </div><!-- /.portfolio-img -->
+                        <div class="portfolio__body">
+                            <div class="portfolio__cat">
+                            </div><!-- /.portfolio-cat -->
+                            <h4 class="portfolio__title"><a href="#">{{ $project->title }}</a></h4>
+                        </div><!-- /.portfolio__body -->
+                    </div><!-- /.portfolio-item -->
+                </div><!-- /.col-lg-4 -->
+                <!-- portfolio item #7 -->
+                @endforeach
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                    <button type="button" class="btn btn__primary btn__loadMore loadMoreportfolio">
+                        <i class="icon-arrow-right"></i><span>Bütün Projelerimiz</span>
+                    </button>
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.portfolio layout1 -->
+@endif
+    <section class="banner-layout3 bg-overlay bg-overlay-primary">
+        <div class="bg-img"><img src="{{ asset('assets/front/images/banners/5.jpg') }}" alt="banner"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="heading-layout2 heading-light mb-40">
+                        <h2 class="heading__title">Devam Eden Ürün ve Yenilik Yoluyla Müşterilerimize Değer Sağlıyoruz.</h2>
+                    </div><!-- /.heading -->
+                    <div class="row counter-light">
+                        <div class="col-sm-6">
+                            <div class="counter-item">
+                                <h4 class="counter">150</h4>
+                                <p class="counter__desc">Bugüne Kadar Tamamlanan Toplam Proje ve Sistem</p>
+                            </div>
+                            <p class="color-gray">
+                                Ancak değişimi benimseyenler gelişiyor; daha büyük, daha iyi, daha hızlı ve daha güçlü ürünler üretiyorlar
+                            </p>
+                        </div><!-- /.col-sm-6 -->
+                        <div class="col-sm-6">
+                            <div class="counter-item">
+                                <h4 class="counter">30</h4>
+                                <p class="counter__desc">
+                                    Nitelikli Çalışanlar ve İşçiler Bizimle</p>
+                            </div>
+                            <p class="color-gray">
+                                Saldırıyı yönetmeye yardımcı oluyorsunuz; geçmişinizi geliştirmenize ve geleceğin değişimini daha hızlı hazırlamanıza yardımcı olabiliriz.
+                            </p>
+                        </div><!-- /.col-sm-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.Banner layout 3 -->
+
+    <section class="cta-layout2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-container d-flex flex-wrap">
+                        <div class="cta__item d-flex">
+                            <div class="cta__icon custom-icon">
+                                <i class="icon-solar-panel"></i>
+                            </div><!-- /.cta__icon -->
+                            <div class="cta__body">
+                                <h4 class="cta__title">Tasarım ve Nakliye</h4>
+                                <p class="cta__desc">
+                                    Tesisat kullanımınızı ve ekipman seçiminizi karşılayan bir sistem tasarlamak ve sunmak için sizinle işbirliği yapıyoruz.</p>
+                                <a href="{{ route('contact') }}" class="btn btn__link btn__primary">
+                                    <i class="icon-arrow-right"></i>
+                                    <span>Bizimle İletişime Geçin</span>
+                                </a>
+                            </div><!-- /.cta__body -->
+                        </div><!-- /.cta__item -->
+                        <div class="cta__item d-flex">
+                            <div class="cta__icon custom-icon">
+                                <i class="icon-energy"></i>
+                            </div><!-- /.cta__icon -->
+                            <div class="cta__body">
+                                <h4 class="cta__title">Kurulum & Sözleşme</h4>
+                                <p class="cta__desc">İster sistemi kendiniz kurun, ister kurulumu doğrudan yöneten yerel yüklenicileri işe alın.</p>
+                                <a href="#" class="btn btn__link btn__primary">
+                                    <i class="icon-arrow-right"></i>
+                                    <span>Bizimle İletişime Geçin</span>
+                                </a>
+                            </div><!-- /.cta__body -->
+                        </div><!-- /.cta__item -->
+                    </div><!-- /.cta -->
+                </div><!-- /.col-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <p class="text__link text-center mt-40 mb-0">Bağımsızlığı güneşin gücüyle keşfedin,
+                        <a href="#">
+                            <span>Planlarımızı Keşfedin</span> <i class="icon-arrow-right"></i>
+                        </a>
+                    </p>
+                </div><!-- /.col-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.cta layout 2 -->
+@if($clients->count() > 0)
+    <section class="clients border-top py-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="slick-carousel"
+                         data-slick='{"slidesToShow": 6, "arrows": false, "dots": false, "autoplay": true,"autoplaySpeed": 2000, "infinite": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 4}}, {"breakpoint": 767, "settings": {"slidesToShow": 3}}, {"breakpoint": 480, "settings": {"slidesToShow": 2}}]}'>
+                        @foreach($clients as $client)
+                        <div class="client">
+                            <a href="#"><img src="{{ asset($client->image) }}" alt="{{ $client->name ?? '' }}"></a>
+                        </div><!-- /.client -->
+                        @endforeach
+                    </div><!-- /.carousel -->
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.clients -->
+@endif
 @endsection

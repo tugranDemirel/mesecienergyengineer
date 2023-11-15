@@ -38,10 +38,9 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'bg_image' => 'required',
             'image' => 'required',
-            'url' => 'required|url',
-            'description' => 'required|max:150',
+            'url' => 'nullable|url',
+            'description' => 'nullable|max:150',
         ]);
 
 
@@ -100,10 +99,9 @@ class SliderController extends Controller
     {
 
         $data = $request->validate([
-            'bg_image' => 'nullable',
             'image' => 'nullable',
-            'url' => 'required|url',
-            'description' => 'required|max:150',
+            'url' => 'nullable|url',
+            'description' => 'nullable|max:150',
         ]);
 
 

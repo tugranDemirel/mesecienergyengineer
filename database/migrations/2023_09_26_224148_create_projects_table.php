@@ -15,19 +15,11 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // Kategori silindiğinde alt kategorileri de silinir.
             $table->string('title');
             $table->string('sub_title')->nullable();
             $table->string('slug')->unique();
             $table->string('image');
-            $table->text("client_quote")->nullable();
             $table->longText('description')->nullable();
-            $table->longText('technology')->nullable();
-            $table->string('system_size')->nullable();
-            $table->date('started_date')->nullable();
-            $table->date('ended_date')->nullable();
-            $table->tinyInteger('status')->default(0)->comment('0:Başladı, 1:Bitti, 2: Devam Ediyor, 3: Başlayack');
             $table->timestamps();
         });
     }

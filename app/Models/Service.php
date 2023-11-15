@@ -13,11 +13,8 @@ class Service extends Model
         'slug',
         "short_description",
         'detail',
-        'bg_image',
         'image',
-        'image2',
         'icon',
-        'status',
         'category_id'
     ];
 

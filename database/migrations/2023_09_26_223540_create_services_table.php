@@ -15,17 +15,14 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->text("short_description");
-            $table->longText('detail');
-            $table->string('bg_image');
-            $table->string('image');
-            $table->string('image2');
-            $table->string('icon');
-            $table->tinyInteger('status')->default(2);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade'); // Kategori silindiğinde alt kategorileri de silinir.
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text("short_description")->nullable();
+            $table->longText('detail')->nullable();
+            $table->string('image')->nullable();
+            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }

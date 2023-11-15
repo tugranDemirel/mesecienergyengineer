@@ -1,97 +1,122 @@
 @extends('front.layouts.app')
 @section('title', ' - '.$service->title)
-@section('meta_description', !is_null($service->title) ? $service->title : ''  )
-@section('meta_keywords', !is_null($service->short_description) ? $service->short_description : ''  )
+@section('meta_description', isset($service->title) ? $service->title : ''  )
+@section('meta_keywords', isset($service->short_description) ? $service->short_description : ''  )
 
-@section('facebook_meta_title', !is_null($service->title) ? $service->title : ' Servis Detay')
-@section('facebook_meta_description', !is_null($service->short_description) ? $service->short_description : ' Servis Detay'  )
-@section('facebook_image', !is_null($service->image) ? asset($service->image) : 'Servis Detay'  )
+@section('facebook_meta_title', isset($service->title) ? $service->title : ' Servis Detay')
+@section('facebook_meta_description', isset($service->short_description) ? $service->short_description : ' Servis Detay'  )
+@section('facebook_image', isset($service->image) ? asset($service->image) : 'Servis Detay'  )
 
-@section('whatsapp_meta_title', !is_null($service->title) ? $service->title : ' Servis Detay')
-@section('whatsapp_meta_description', !is_null($service->short_description) ? $service->short_description : ' Servis Detay'  )
-@section('whatsapp_image', !is_null($service->image) ? asset($service->image) : 'Servis Detay'  )
+@section('whatsapp_meta_title', isset($service->title) ? $service->title : ' Servis Detay')
+@section('whatsapp_meta_description', isset($service->short_description) ? $service->short_description : ' Servis Detay'  )
+@section('whatsapp_image', isset($service->image) ? asset($service->image) : 'Servis Detay'  )
 @section('css')
     <meta property="wa:type" content="article">
     <meta property="og:type" content="article">
 @endsection
 
 @section('content')
+    <section class="page-title pt-30 pb-30">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <nav>
+                        <ol class="breadcrumb justify-content-center mb-20">
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Anasayfa</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('services') }}">Hizmetlerimiz</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ $service->title }}
+                            </li>
+                        </ol>
+                    </nav>
+                </div><!-- /.col-xl-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.page-title -->
+    <section class="blog blog-single pt-0 pb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8">
+                    <div class="post-item mb-0">
+                        <div class="post__img">
+                            <a href="#">
+                                <img src="{{ asset($service->image) }}" alt="post image">
+                            </a>
+                        </div><!-- /.entry-img -->
+                        <div class="post__body">
+                            <div class="post__meta d-flex align-items-center">
+                                <a href="#" class="post__meta-cat">{{ $service->title }}</a>
+                                <span class="post__meta-date">{{ $service->created_at->format('d M Y') }}</span>
+                            </div><!-- /.entry-meta -->
+                            <h1 class="post__title">
+                                {{ $service->sub_title }}
+                            </h1>
+                            <div class="post__desc">
+                                {!! $service->detail !!}
+                            </div><!-- /.post-desc -->
+                        </div><!-- /.entry-content -->
+                    </div><!-- /.post-item -->
 
-    <div class="breadcumb-wrapper " data-bg-src="{{ asset($service->bg_image) ?? asset('assets/front/img/breadcumb/breadcumb-bg.jpg') }}">
-        <div class="container z-index-common">
-            <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Hizmet Detayı</h1>
-                <p class="breadcumb-subtitle">{{$service->title}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="breadcumb-menu-wrap">
-        <div class="container">
-            <ul class="breadcumb-menu">
-                <li><a href="{{ route('home') }}"><i class="fas fa-home-lg"></i>Anasayfa</a></li>
-                <li>{{ $service->title }}</li>
-            </ul>
-        </div>
-    </div>
-    <section class=" space-top space-extra-bottom">
-        <div class="container">
-            <div class="row justify-content-between flex-row-reverse gx-60">
-                <div class="col-xl-7 col-xxl-auto wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="img-box9">
-                        <div class="img-1"><img src="{{ $service->image }}" alt="thumbnail"></div>
-                        <div class="img-2"><img src="{{ $service->image2 }}" alt="thumbnail"></div>
-                        <div class="img-shape1"></div>
-                        <div class="shape-dotted jump"></div>
+                    <div class="widget-nav d-flex justify-content-between mb-40 pt-30 pb-30 border-top border-bottom">
+                        @if(isset($otherServices[0]))
+                        <a href="{{ route('service.detail', ['slug' => $otherServices[0]->slug]) }}" class="widget-nav__prev d-flex flex-wrap">
+                            <div class="widget-nav__img">
+                                <img src="{{ assert($otherServices[0]->image) }}" alt="{{ $otherServices[0]->title }}">
+                            </div>
+                            <div class="widget-nav__content">
+                                <span>Önceki</span>
+                                <h5 class="widget-nav__ttile mb-0">{{ $otherServices[0]->title }}</h5>
+                            </div>
+                        </a><!-- /.widget-prev  -->
+                        @endif
+                        @if(isset($otherServices[1]))
+                        <a href="{{ route('service.detail', ['slug' => $otherServices[1]->slug]) }}" class="widget-nav__next d-flex flex-wrap">
+                            <div class="widget-nav__img">
+                                <img src="{{ assert($otherServices[1]->image) }}" alt="{{ $otherServices[1]->title }}">
+                            </div>
+                            <div class="widget-nav__content">
+                                <span>Sonraki</span>
+                                <h5 class="widget-nav__ttile mb-0">{{ $otherServices[1]->title }}</h5>
+                            </div>
+                        </a><!-- /.widget-next  -->
+                        @endif
                     </div>
-                </div>
-                <div class="col-xl-5 col-xxl-4 align-self-center wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="vs-media about-media2">
-                        <div class="media-icon"><img src="{{ $service->icon }}" alt="feature icon"></div>
-                        <div class="media-body">
-                            <span class="media-title h3">{{ $service->title }}</span>
-                            <p class="media-info">{{ $service->short_description }}</p>
-                        </div>
-                    </div>
-                    <a href="{{ route('contact') }}" class="vs-btn style2 mb-30">İletişime Geçin</a>
-                </div>
-            </div>
-            <p>
-                {!! $service->detail !!}
-            </p>
-            <div class=" space-extra-top mb-30">
-                <span class="sec-subtitle">İHTİYACINIZ OLAN HER ŞEY</span>
-                <h2 class="sec-title mb-4">Ne Sağlıyoruz?</h2>
-                <div class="row gx-0">
-                    <div class="col-md-6 col-lg-4 feature-style2 style2  wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="feature-body">
-                            <div class="feature-icon"><i class="far fa-check"></i></div>
-                            <h3 class="feature-title h5">Eşsiz Deneyim</h3>
-                            <p class="feature-text">Ömür boyu sizleri memnun edecek ve eşsiz deneyim yaşatacak hizmetlere imza atıyoruz.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 feature-style2 style2  wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="feature-body">
-                            <div class="feature-icon"><i class="far fa-check"></i></div>
-                            <h3 class="feature-title h5">Paradan Tasarruf Edin</h3>
-                            <p class="feature-text">Paranızın fazlası ile çöpe gitmesini engelliyoruz.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 feature-style2 style2  wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="feature-body">
-                            <div class="feature-icon"><i class="far fa-check"></i></div>
-                            <h3 class="feature-title h5">Danışmanlık & Planlama</h3>
-                            <p class="feature-text">Planlama ve dasnışmanlık hizmeti vererek sizler için en uygun hizmeti veriyoruz.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 feature-style2 style2  wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="feature-body">
-                            <div class="feature-icon"><i class="far fa-check"></i></div>
-                            <h3 class="feature-title h5">Ürün Güvenirliliği</h3>
-                            <p class="feature-text">İşimizi en uygun ürünlerle yapmaktayız.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+                </div><!-- /.col-lg-8 -->
+                @if($otherServices->count() > 0)
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <aside class="sidebar">
+
+                        <div class="widget widget-posts">
+                            <h5 class="widget__title">
+                                Diğer Hizmetlerimiz
+                            </h5>
+                            <div class="widget__content">
+                                <!-- post item #1 -->
+                                @foreach($otherServices as $otherService)
+                                <div class="widget-post-item d-flex align-items-center">
+                                    <div class="widget-post__img">
+                                        <a href="#"><img src="{{ asset($otherService->image) }}" alt="{{ $otherService->title }}"></a>
+                                    </div><!-- /.widget-post-img -->
+                                    <div class="widget-post__content">
+                                        <span class="widget-post__date">
+                                            {{ $otherService->created_at->format('d M Y') }}
+                                        </span>
+                                        <h4 class="widget-post__title"><a href="{{ route('service.detail', ['slug' => $otherService->slug]) }}">
+                                            {{ $otherService->title }}
+                                            </a>
+                                        </h4>
+                                    </div><!-- /.widget-post-content -->
+                                </div><!-- /.widget-post-item -->
+                                @endforeach
+                            </div><!-- /.widget-content -->
+                        </div><!-- /.widget-posts -->
+
+                    </aside><!-- /.sidebar -->
+                </div><!-- /.col-lg-4 -->
+                @endif
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.blog Single -->
+
 @endsection

@@ -12,16 +12,15 @@ class FServiceController extends Controller
 {
     public function index()
     {
-        $projects = Project::with('category')->orderByDesc('id')->get();
-        $clients = Client::all();
         $services = Service::with('category')->get();
 
-        return view('front.service.index', compact('projects', 'clients', 'services'));
+        return view('front.service.index', compact( 'services'));
     }
 
     public function detail($slug)
     {
         $service = Service::where('slug', $slug)->with('category')->firstOrFail();
-        return view('front.service.detail', compact('service'));
+        $otherServices = Service::where('id', '!=', $service->id)->with('category')->get();
+        return view('front.service.detail', compact('service', 'otherServices'));
     }
 }
